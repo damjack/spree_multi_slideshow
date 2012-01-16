@@ -14,7 +14,7 @@ Basic Installation
 2. Run `bundle install`
 3. To copy and apply migrations run:
 <pre>
-	rails g spree_multi_slideshow:install`
+	rails g spree_multi_slideshow:install
 </pre>
 
 Example
