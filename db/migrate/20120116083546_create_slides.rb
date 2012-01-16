@@ -1,7 +1,7 @@
 class CreateSlides < ActiveRecord::Migration
   def change
     create_table :slides do |t|
-      t.string :category, :title, :url
+      t.string :title, :url
       
       t.string   :image_content_type, :image_file_name
       t.integer  :image_size, :position

@@ -1,13 +1,11 @@
 <%= f.inputs do %>
-	<%= f.input :name %>
-	<%= f.input :title %>
+	<%= f.input :category %>
 	<%= f.input :width %>
 	<%= f.input :slide_number %>
 	<%= f.input :enable_navigation %>
 	<%= f.input :enabled %>
-	<% @slide.images.build %>
-	<%=	f.inputs "Slide", :for => :slide do |i|
+	<%=	f.inputs "Slide", :for => :slides do |i|
 		i.input :_destroy, :as => :boolean, :label => "elimina?" if !i.object.nil?
-		i.input :slide, :as => :file, :input_html => { :multiple => true }, :label => I18n.t("slide.one").capitalize, :hint => i.object.slide.nil? ? i.template.content_tag(:span, "No Image Yet") : i.template.image_tag(i.object.slide.url(:thumbnail))
+		i.input :image, :as => :file, :input_html => { :multiple => true }, :label => t("slide.one").capitalize
 	end	%>
 <% end %>

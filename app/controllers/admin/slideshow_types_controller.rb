@@ -1,3 +1,3 @@
-class Admin::SlideshowTypesController < Admin::BaseController
-  resource_controller
+class Admin::SlideshowTypesController < Admin::ResourceController
+
 end

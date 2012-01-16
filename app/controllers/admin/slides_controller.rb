@@ -1,3 +1,2 @@
-class Admin::SlidesController < Admin::BaseController
-  resource_controller
+class Admin::SlidesController < Admin::ResourceController
 end

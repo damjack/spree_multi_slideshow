@@ -27,6 +27,6 @@ it:
   slideshow_type:
     slideshow: Slideshow
     slideshow_desc: Gestione slideshow e slide.
-    new_page: Nuova pagina
+    new_page: Nuova Slideshow
     editing_page: Modifica pagina
     confirm_delete: Sei sicuro?

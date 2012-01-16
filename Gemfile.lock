@@ -2,8 +2,10 @@ PATH
   remote: .
   specs:
     spree_multi_slideshow (0.70.3)
+      formtastic
       paperclip (>= 2.4.1)
-      spree_core (>= 0.70.3)
+      spree_auth (>= 0.70.1)
+      spree_core (>= 0.70.1)
 
 GEM
   remote: http://rubygems.org/
@@ -72,6 +74,8 @@ GEM
     faker (1.0.0)
       i18n (~> 0.4)
     ffi (1.0.11)
+    formtastic (2.0.2)
+      rails (~> 3.0)
     highline (1.6.2)
     hike (1.2.1)
     i18n (0.6.0)
