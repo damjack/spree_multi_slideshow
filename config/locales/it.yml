@@ -1,0 +1,32 @@
+---
+it:
+  activerecord:
+    attributes:
+      slideshow_type:
+        name: Nome
+        enabled: Attivo?
+        width: Larghezza
+        title: Titolo
+        slide_number: Numero Slide
+        enable_navigation: Tasti navigazione attivi?
+      slide:
+        category: Categoria
+        position: Posizione
+    models:
+      slideshow_type:
+        one: Slideshow
+        many: Slideshows
+      slide:
+        one: Slide
+        many: Slides
+
+  slideshow_type: Slideshow
+  slideshow_types: Slideshows
+  slide: Slide
+  slides: Slides
+  slideshow_type:
+    slideshow: Slideshow
+    slideshow_desc: Gestione slideshow e slide.
+    new_page: Nuova pagina
+    editing_page: Modifica pagina
+    confirm_delete: Sei sicuro?

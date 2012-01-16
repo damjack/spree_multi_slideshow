@@ -1,0 +1,10 @@
+<h1><%= t("slideshow_type.new_page") %></h1>
+<%= render "shared/error_messages", :target => @slideshow_type %>
+
+<%= semantic_form_for([:admin, @slideshow_type]) do |f| %>
+  <%= render :partial => "form", :locals => { :f => f } %>
+  <p class="form-buttons">
+    <%= button t("actions.create"), nil, 'submit' %>
+    <%= t("or") %> <%= link_to t("actions.cancel"), admin_slideshow_types_path %>
+  </p>
+<% end %>
