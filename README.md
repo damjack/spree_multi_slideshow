@@ -1,20 +1,29 @@
 SpreeMultiSlideshow
 ===================
 
-Introduction goes here.
+Add multiple slideshow for Spree Commerce
 
+
+Basic Installation
+------------------
+
+1. Add the following to your Gemfile
+<pre>
+  gem 'spree_multi_slideshow', :git => 'github.com/damianogiacomello/spree_multi_slideshow'
+</pre>
+2. Run `bundle install`
+3. To copy and apply migrations run:
+<pre>
+	rails g spree_multi_slideshow:install`
+</pre>
 
 Example
 =======
 
-Example goes here.
+1. add slideshow helper method in your view:
+<pre>
+	<%= insert_slideshow %>
+</pre>
 
-Testing
--------
 
-Be sure to add the rspec-rails gem to your Gemfile and then create a dummy test app for the specs to run against.
-
-    $ bundle exec rake test app
-    $ bundle exec rspec spec
-
-Copyright (c) 2012 [name of extension creator], released under the New BSD License
+Copyright (c) 2012 [Damiano Giacomello], released under the New BSD License
