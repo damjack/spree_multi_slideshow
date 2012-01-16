@@ -1,3 +1,3 @@
-class Admin::EditorSettingsController < Admin::BaseController
+class Admin::SlideshowTypesController < Admin::BaseController
       
 end
