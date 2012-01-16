@@ -1,4 +1,4 @@
-class Admin::SlideshowTypesController < Admin::BaseController
+class Admin::SlidesController < Admin::BaseController
   resource_controller
 
    update.wants.html { redirect_to collection_url }

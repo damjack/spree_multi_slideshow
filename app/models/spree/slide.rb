@@ -6,7 +6,7 @@ class Spree::Slide < ActiveRecord::Base
                 :url  => "/assets/slides/:id/:style_:basename.:extension",
                 :path => ":rails_root/public/assets/slides/:id/:style_:basename.:extension",
                 :default_url => "/missing/:style.jpg",
-	              :styles => {:thumbnail => "-gravity center 100x50#", :small => "150x100#", :slide => "" },
+	              :styles => {:thumbnail => "-gravity center 100x33#", :small => "-gravity center 300x100#", :medium => "-gravity center 600x200#", :slide => "-gravity center 900x300#" },
 	              :convert_options => {:thumbnail => "-gravity Center", :slide => "-gravity Center"}
 
   #process_in_background :image UTILE MA OCCORRE ATTIVARE ANCHE LA GEMMA DELAYED-PAPERCLIP
