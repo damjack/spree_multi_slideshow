@@ -25,7 +25,6 @@ Example
 	<%= insert_slideshow %>
 </pre>
 add slides for the slideshow in the admin section
-
 2. Additional options:
 <pre>
 	<%= insert_slideshow :category => "home" %>
@@ -35,6 +34,5 @@ displays slides for which the groups column is empty or includes the value "home
 	<%= insert_slideshow :max => 10 %>
 </pre>
 limits the number of slides shown to 10 (default 4)
-
 
 Copyright (c) 2012 [Damiano Giacomello], released under the New BSD License
