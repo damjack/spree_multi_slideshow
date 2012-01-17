@@ -15,12 +15,13 @@ module SlideshowTypesHelper
   def slide_images(params)
     max = params[:max] || 5
     category = params[:category] || "home"
+    style = params[:style] || "custom"
     slideshow = SlideshowType.enable(category)
     if !slideshow.blank?
       slides = slideshow.slides.sort_by { |slide| slide.position }
 
       slides.map do |slide|
-        content_tag(:li, link_to(image_tag(slide.image.url(:slide)), slide.url, { :title => slide.title }) + content_tag(:div, content_tag(:strong, raw(slide.title)), :class => "text-holder"))
+        content_tag(:li, link_to(image_tag(slide.image.url(style.to_sym)), slide.url, { :title => slide.title }) + content_tag(:div, content_tag(:strong, raw(slide.title)), :class => "text-holder"))
       end.join
     else
       false

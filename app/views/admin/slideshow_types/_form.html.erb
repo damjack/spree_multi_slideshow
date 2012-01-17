@@ -1,10 +1,10 @@
 <%= f.inputs do %>
 	<%= f.input :category %>
-	<%= f.inputs :slide_width, :slide_height %>
+	<%= f.inputs t("slideshow_type.dimension") do %>
+		<%= f.input :slide_width %>
+		<%= f.input :slide_height %>
+	<% end %>
 	<%= f.input :slide_number %>
 	<%= f.input :enable_navigation %>
 	<%= f.input :enabled %>
-	<%=	f.inputs "Slide", :for => :slides do |i|
-		i.input :_destroy, :as => :boolean, :label => "elimina?" if !i.object.nil?
-	end	%>
 <% end %>

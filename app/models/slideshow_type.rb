@@ -1,6 +1,6 @@
 class SlideshowType < ActiveRecord::Base
 
-  has_many :slides, :as => :slideable
+  belongs_to :slide
 
   validates :category, :slide_number, :slide_width, :slide_height, :presence => true
   validates_numericality_of :slide_number, :only_integer => true

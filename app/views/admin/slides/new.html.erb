@@ -1,10 +1,12 @@
-<h1><%= t("slideshow_type.slide.new_page") %></h1>
-<%= render "shared/error_messages", :target => @slide %>
-
-<%= semantic_form_for([:admin_slideshow_type, @slide], :html => { :enctype => "multipart/form-data" }) do |f| %>
-  <%= render :partial => "form", :locals => { :f => f } %>
-  <p class="form-buttons">
-    <%= button t("actions.create"), nil, 'submit' %>
-    <%= t("or") %> <%= link_to t("actions.cancel"), admin_slideshow_type_slides_path %>
+<h4><%= t(:new_slide) %></h4>
+<%= semantic_form_for [:admin, @slideshow_type, @slide], :html => { :multipart => true } do |f| %>
+  <table class="basic-table" data-hook="new_slide">
+    <%= render :partial => 'form', :locals => { :f => f } %>
+  </table>
+  <p class="form-buttons" data-hook="buttons">
+    <%= button t(:update) %>
+    <%= t(:or) %> <%= link_to t(:cancel), admin_slideshow_type_slides_url(@slideshow_type), :id => 'cancel_link' %>
   </p>
 <% end %>
+
+<%= javascript_include_tag 'admin/slides/new.js' %>

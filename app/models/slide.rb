@@ -1,5 +1,7 @@
 class Slide < ActiveRecord::Base
-  belongs_to :slideable, :polymorphic => true
+  
+  has_many :slideshow_types
+  validates_presence_of :slideshow_type_id
   
   has_attached_file :image,
             :url  => "/assets/slides/:id/:style_:basename.:extension",
@@ -10,7 +12,7 @@ class Slide < ActiveRecord::Base
                   :small => "300x100#",
                   :medium => "600x200#",
                   :slide => "900x300#",
-                  :custom => Proc.new { |instance| "#{instance.width}x#{instance.height}#" }
+                  :custom => Proc.new { |instance| "#{SlideshowType.find(instance.slideshow_type_id).slide_width}x#{SlideshowType.find(instance.slideshow_type_id).slide_height}#" }
             },
             :convert_options => {
                   :thumbnail => "-gravity center",
