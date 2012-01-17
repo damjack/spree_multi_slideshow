@@ -36,5 +36,4 @@ displays slides for which the groups column is empty or includes the value "home
 </pre>
 limits the number of slides shown to 10 (default 4)
 
-
 Copyright (c) 2012 [Damiano Giacomello], released under the New BSD License
