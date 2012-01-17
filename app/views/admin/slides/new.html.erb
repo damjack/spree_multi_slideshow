@@ -1,10 +1,10 @@
-<h1><%= t("slideshow_type.new_page") %></h1>
+<h1><%= t("slideshow_type.slide.new_page") %></h1>
 <%= render "shared/error_messages", :target => @slide %>
 
-<%= semantic_form_for([:admin, @slide]) do |f| %>
-<%= render :partial => "form", :locals => { :f => f } %>
-<p class="form-buttons">
-	<%= button t("actions.create"), nil, 'submit' %>
-	<%= t("or") %> <%= link_to t("actions.cancel"), admin_slides_path %>
-</p>
+<%= semantic_form_for([:admin_slideshow_type, @slide], :html => { :enctype => "multipart/form-data" }) do |f| %>
+  <%= render :partial => "form", :locals => { :f => f } %>
+  <p class="form-buttons">
+    <%= button t("actions.create"), nil, 'submit' %>
+    <%= t("or") %> <%= link_to t("actions.cancel"), admin_slideshow_type_slides_path %>
+  </p>
 <% end %>

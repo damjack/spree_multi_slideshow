@@ -1,8 +1,7 @@
 <%= f.inputs do %>
-  <%= f.input :name %>
   <%= f.input :title %>
-  <%= f.input :width %>
-  <%= f.input :slide_number %>
-  <%= f.input :enable_navigation %>
-  <%= f.input :enabled %>
+  <%= f.inputs :image_width, :image_height %>
+  <%= f.input :url %>
+  <%= f.input :position %>
+  <%= f.input :image, :as => :file, :label => I18n.t("slideshow_type.slide.image.one").capitalize, :hint => f.object.image.blank? ? f.template.content_tag(:span, "No Image Yet") : f.template.image_tag(f.object.image.url(:thumbnail)) %>
 <% end %>

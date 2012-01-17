@@ -1,11 +1,10 @@
 <%= f.inputs do %>
 	<%= f.input :category %>
-	<%= f.input :width %>
+	<%= f.inputs :slide_width, :slide_height %>
 	<%= f.input :slide_number %>
 	<%= f.input :enable_navigation %>
 	<%= f.input :enabled %>
 	<%=	f.inputs "Slide", :for => :slides do |i|
 		i.input :_destroy, :as => :boolean, :label => "elimina?" if !i.object.nil?
-		i.input :image, :as => :file, :input_html => { :multiple => true }, :label => t("slide.one").capitalize
 	end	%>
 <% end %>

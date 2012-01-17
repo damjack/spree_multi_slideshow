@@ -28,5 +28,10 @@ it:
     slideshow: Slideshow
     slideshow_desc: Gestione slideshow e slide.
     new_page: Nuova Slideshow
+    slide:
+      new_page: Nuova Slide
+      image:
+        one: Immagine
+        many: Immagini
     editing_page: Modifica pagina
     confirm_delete: Sei sicuro?

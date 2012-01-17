@@ -19,7 +19,7 @@
 		<% @slideshow_types.each do |slideshow_type| %>
 		<tr class="<%= cycle('even', 'odd') %>" id="<%= dom_id slideshow_type %>">
 			<td><%= slideshow_type.category %></td>
-			<td><%= icon('tick') if slideshow_type.enable %></td>
+			<td><%= icon('tick') if slideshow_type.enabled %></td>
 			<td>
 				<%= link_to_edit slideshow_type %> &nbsp;
 				<%= link_to_delete slideshow_type %>
