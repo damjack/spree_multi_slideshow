@@ -4,6 +4,7 @@ gem 'sqlite3'
 
 gem 'spree', '0.70.3'
 gem "paperclip", ">= 2.4.1"
+gem "formtastic"
 
 group :test do
   gem 'rspec-rails', '= 2.6.1'

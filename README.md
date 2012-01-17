@@ -27,11 +27,11 @@ Example
 add slides for the slideshow in the admin section
 2. Additional options:
 <pre>
-	<%= insert_slideshow :category => "home" %>
+	<%= insert_slideshow(:category => "my_category") %>
 </pre>
-displays slides for which the groups column is empty or includes the value "home"
+displays slides for which the category column, dafault is "home"
 <pre>
-	<%= insert_slideshow :max => 10 %>
+	<%= insert_slideshow(:max => 10) %>
 </pre>
 limits the number of slides shown to 10 (default 4)
 

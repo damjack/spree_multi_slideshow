@@ -27,11 +27,11 @@ it:
   slideshow_type:
     slideshow: Slideshow
     slideshow_desc: Gestione slideshow e slide.
-    new_page: Nuova Slideshow
+    new_page: Nuova slideshow
     slide:
-      new_page: Nuova Slide
+      new_page: Nuova slide
       image:
         one: Immagine
         many: Immagini
-    editing_page: Modifica pagina
+    editing_page: Modifica slideshow
     confirm_delete: Sei sicuro?

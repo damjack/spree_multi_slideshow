@@ -25,7 +25,6 @@ module SlideshowTypesHelper
     else
       false
     end
-    
   end
 
 end

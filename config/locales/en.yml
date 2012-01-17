@@ -33,5 +33,5 @@ it:
       image:
           one: Image
           many: Images
-    editing_page: Editing page
+    editing_page: Editing slideshow
     confirm_delete: Are you sure ?
