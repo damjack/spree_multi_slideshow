@@ -1,7 +1,6 @@
 <%= f.inputs do %>
   <%= f.input :title %>
   <%= f.input :url %>
-  <%= f.input :position %>
   <%= f.input :image, :as => :file, :label => I18n.t("slideshow_type.slide.image.one").capitalize, :hint => f.object.image.blank? ? f.template.content_tag(:span, "No Image Yet") : f.template.image_tag(f.object.image.url(:thumbnail)) %>
   <%= f.input :slideshow_type_id, :as => :hidden, :value => params[:slideshow_type_id] %>
 <% end %>

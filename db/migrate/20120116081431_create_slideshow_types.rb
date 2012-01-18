@@ -1,7 +1,7 @@
 class CreateSlideshowTypes < ActiveRecord::Migration
   def change
     create_table :slideshow_types do |t|
-      t.string :category, :default => "home"
+      t.string :category
       t.boolean :enabled, :default => 0
       t.integer :slide_height, :default => 400
       t.integer :slide_width, :default => 900

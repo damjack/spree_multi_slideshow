@@ -31,8 +31,8 @@ add slides for the slideshow in the admin section
 </pre>
 displays slides for which the category column, dafault is "home"
 <pre>
-	<%= insert_slideshow(:max => 10) %>
+	<%= insert_slideshow(:style => "small") %>
 </pre>
-limits the number of slides shown to 10 (default 4)
+style layout for slideshow: [small, medium, slide, default => custom]
 
 Copyright (c) 2012 [Damiano Giacomello], released under the New BSD License

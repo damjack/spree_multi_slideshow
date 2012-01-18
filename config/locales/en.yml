@@ -3,15 +3,16 @@ it:
   activerecord:
     attributes:
       slideshow_type:
-        name: Name
+        category: Category
         enabled: Enable?
-        width: Width
-        title: Title
+        slide_width: Width
+        slide_height: Height
         slide_number: Slide Number
         enable_navigation: Next and Prev enable?
       slide:
-        category: Category
-        position: Position
+        title: Title
+        url: Link to product or taxonomy or to external website
+        image: Image
     models:
       slideshow_type:
         one: Slideshow
@@ -20,18 +21,25 @@ it:
         one: Slide
         many: Slides
 
-  slideshow_type: Slideshow
-  slideshow_types: Slideshows
-  slide: Slide
-  slides: Slides
   slideshow_type:
-    slideshow: Slideshow
-    slideshow_desc: Manage slideshow and slide.
+    one: Slideshow
+    many: Slideshows
+    enable: Enable?
+    category: Category
+    slide_number: Slide Number
+    detail: Detail
+    sidebar: Manage slideshow and slide.
     new_page: New page
     slide:
+      one: Slide
+      many: Slides
       new_page: New Slide
       image:
           one: Image
           many: Images
+      thumbnail: Thumbnail
+      title: Title
+      url: Link to product or taxonomy or to external website
+      editing_page: Editing slide
     editing_page: Editing slideshow
     confirm_delete: Are you sure ?

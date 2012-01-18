@@ -3,15 +3,16 @@ it:
   activerecord:
     attributes:
       slideshow_type:
-        name: Nome
+        category: Categoria
         enabled: Attivo?
-        width: Larghezza
-        title: Titolo
+        slide_width: Larghezza
+        slide_height: Altezza
         slide_number: Numero Slide
         enable_navigation: Tasti navigazione attivi?
       slide:
-        category: Categoria
-        position: Posizione
+        title: Titolo
+        url: Link a prodotto o tassonomia o a sito esterno
+        image: Immagine
     models:
       slideshow_type:
         one: Slideshow
@@ -20,18 +21,25 @@ it:
         one: Slide
         many: Slides
 
-  slideshow_type: Slideshow
-  slideshow_types: Slideshows
-  slide: Slide
-  slides: Slides
   slideshow_type:
-    slideshow: Slideshow
-    slideshow_desc: Gestione slideshow e slide.
-    new_page: Nuova slideshow
+    one: Slideshow
+    many: Slideshows
+    enable: Attivo?
+    category: Categoria
+    slide_number: Numero Slide
+    detail: Attributi
+    sidebar: Gestione slideshow e slide.
+    new_page: Nuovo slideshow
     slide:
+      one: Slide
+      many: Slides
       new_page: Nuova slide
       image:
         one: Immagine
         many: Immagini
+      thumbnail: Miniatura
+      title: Titolo
+      url: Link a prodotto o tassonomia o a sito esterno
+      editing_page: Modifica slide
     editing_page: Modifica slideshow
     confirm_delete: Sei sicuro?

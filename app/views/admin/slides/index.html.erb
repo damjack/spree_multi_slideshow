@@ -3,15 +3,14 @@
 <%= javascript_include_tag 'admin/slides/index.js' %>
 <div id="slides" data-hook></div>
 <p data-hook="links">
-    <%= link_to icon('add') + ' ' + t(:new_slide), new_admin_slideshow_type_slide_url(@slideshow_type), :id => 'new_slide_link' %>
+    <%= link_to icon('add') + ' ' + t("slideshow_type.slide.new_page"), new_admin_slideshow_type_slide_url(@slideshow_type), :id => 'new_slide_link' %>
 </p>
 
 <table class="index sortable" data-hook="slide_table">
   <tr data-hook="images_header">
-    <th><%= t(:thumbnail) %></th>
-    <th><%= t(:title) %></th>
-	<th><%= t(:url) %></th>
-	<th><%= t(:position) %></th>
+    <th><%= t("slideshow_type.slide.thumbnail") %></th>
+    <th><%= t("slideshow_type.slide.title") %></th>
+	<th><%= t("slideshow_type.slide.url") %></th>
     <th><%= t(:action) %></th>
   </tr>
 
@@ -23,7 +22,6 @@
       </td>
 	  <td><%= slide.title %></td>
 	  <td><%= slide.url %></td>
-      <td><%= slide.position %></td>
       <td class="actions">
         <%= link_to_with_icon 'edit', t(:edit), edit_admin_slideshow_type_slide_url(@slideshow_type, slide), :class => 'edit' %>
         &nbsp;

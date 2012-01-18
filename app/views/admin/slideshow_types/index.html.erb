@@ -7,12 +7,13 @@
 	<br class='clear' />
 </div>
 
-<h1><%= t("slideshow_type.slideshow") %></h1>
+<h1><%= t("slideshow_type.many") %></h1>
 
 <table class="index">
 	<tr>
-		<th><%= SlideshowType.human_attribute_name(:category) %></th>
-		<th><%= SlideshowType.human_attribute_name(:enable) %></th>
+		<th><%= t("slideshow_type.category") %></th>
+		<th><%= t("slideshow_type.enable") %></th>
+		<th><%= t("slideshow_type.slide_number") %></th>
 		<th><%= t("action") %></th>
 	</tr>
 	<tbody>
@@ -20,6 +21,7 @@
 		<tr class="<%= cycle('even', 'odd') %>" id="<%= dom_id slideshow_type %>">
 			<td><%= slideshow_type.category %></td>
 			<td><%= icon('tick') if slideshow_type.enabled %></td>
+			<td><%= slideshow_type.slide_number %></td>
 			<td>
 				<%= link_to_edit slideshow_type %> &nbsp;
 				<%= link_to_delete slideshow_type %>
