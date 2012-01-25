@@ -4,8 +4,8 @@ class Slide < ActiveRecord::Base
   validates_presence_of :slideshow_type_id
   
   has_attached_file :image,
-            :url  => "/assets/slides/:id/:style_:basename.:extension",
-            :path => ":rails_root/public/assets/slides/:id/:style_:basename.:extension",
+            :url  => "/spree/slides/:id/:style_:basename.:extension",
+            :path => ":rails_root/public/spree/slides/:id/:style_:basename.:extension",
             #:default_url => "/missing/:style.jpg",
             :styles => {
                   :thumbnail => "100x33#",
