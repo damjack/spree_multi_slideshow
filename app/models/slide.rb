@@ -26,8 +26,8 @@ class Slide < ActiveRecord::Base
 
   def initialize(*args)
     super(*args)
-    last_page = Page.last
-    self.position = last_page ? last_page.position + 1 : 0
+    last_slide = Slide.last
+    self.position = last_slide ? last_slide.position + 1 : 0
   end
 
 end
