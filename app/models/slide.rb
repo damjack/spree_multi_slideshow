@@ -4,8 +4,8 @@ class Slide < ActiveRecord::Base
   validates_presence_of :slideshow_type_id
   
   has_attached_file :image,
-            :url  => "/assets/slides/:id/:style_:basename.:extension",
-            :path => ":rails_root/public/assets/slides/:id/:style_:basename.:extension",
+            :url  => "/spree/slides/:id/:style_:basename.:extension",
+            :path => ":rails_root/public/spree/slides/:id/:style_:basename.:extension",
             #:default_url => "/missing/:style.jpg",
             :styles => {
                   :thumbnail => "100x33#",
@@ -26,8 +26,8 @@ class Slide < ActiveRecord::Base
 
   def initialize(*args)
     super(*args)
-    last_page = Page.last
-    self.position = last_page ? last_page.position + 1 : 0
+    last_slide = Slide.last
+    self.position = last_slide ? last_slide.position + 1 : 0
   end
 
 end
