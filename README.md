@@ -34,5 +34,9 @@ displays slides for which the category column, dafault is "home"
 	<%= insert_slideshow(:style => "small") %>
 </pre>
 style layout for slideshow: [small, medium, slide, default => custom]
+<pre>
+	<%= insert_slideshow(:container_navigation => "span", :class_navigation_container => "my_class", :class_navigation_link => "my_class") %>
+</pre>
+added a content_tag for navigatin button, default is nil
 
 Copyright (c) 2012 [Damiano Giacomello], released under the New BSD License
