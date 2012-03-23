@@ -1,6 +1,54 @@
 ---
-it:
+en:
   activerecord:
+    errors: &errors
+      format: "%{attribute} %{message}\n"
+
+      messages: &errors_messages
+        inclusion: "is not included in the list"
+        exclusion: "is reserved"
+        invalid: "is invalid"
+        confirmation: "doesn't match confirmation"
+        record_invalid: "Validation failed: %{errors}"
+        taken: has already been taken
+        accepted: "must be accepted"
+        empty: "can't be empty"
+        blank: "can't be blank"
+        too_long:
+          one: "is too long (maximum is 1 character)"
+          other: "is too long (maximum is %{count} characters)"
+        too_short:
+          one:  "is too short (minimum is 1 character)"
+          other:  "is too short (minimum is %{count} characters)"
+        wrong_length:
+          one: "is the wrong length (should be 1 character)"
+          other: "is the wrong length (should be %{count} characters)"
+        not_a_number: "is not a number"
+        not_an_integer: "must be an integer"
+        greater_than: "must be greater than %{count}"
+        greater_than_or_equal_to: "must be greater than or equal to %{count}"
+        equal_to: "must be equal to %{count}"
+        less_than: "must be less than %{count}"
+        less_than_or_equal_to: "must be less than or equal to %{count}"
+        odd: "must be odd"
+        even: "must be even"
+
+      models:
+        slideshow_type:
+          attributes:
+            slideshow_type:
+              category: Category
+              enabled: Enable?
+              slide_width: Width
+              slide_height: Height
+              slide_number: Slide Number
+              enable_navigation: Next and Prev enable?
+      slide:
+        attributes:
+          slide:
+            title: Title
+            url: Link to product or taxonomy or to external website
+            image: Image
     attributes:
       slideshow_type:
         category: Category
@@ -20,7 +68,7 @@ it:
       slide:
         one: Slide
         many: Slides
-
+  
   slideshow_type:
     one: Slideshow
     many: Slideshows
@@ -39,6 +87,8 @@ it:
           many: Images
       thumbnail: Thumbnail
       title: Title
+      position: Position
+      content: Description
       url: Link to product or taxonomy or to external website
       editing_page: Editing slide
     editing_page: Editing slideshow

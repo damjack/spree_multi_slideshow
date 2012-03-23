@@ -24,6 +24,11 @@ module SpreeMultiSlideshow
            puts "Skiping rake db:migrate, don't forget to run it!"
          end
       end
+      
+      def add_ckeditor
+        run 'rails generate ckeditor:install --orm=active_record --backend=paperclip'
+      end
+      
     end
   end
 end

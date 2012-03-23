@@ -8,10 +8,9 @@ module Spree
         content_for(:head) { javascript_include_tag 'spree_multi_slideshow.js' }
         @content_for_head_added = true
       end
-      cl = params[:class] || "gallery playing"
       if slide_images(params)
         navigation = enable_navigation(params)
-        content_tag(:div, navigation[:prev] + content_tag(:div, content_tag(:ul, raw(slide_images(params))), :class => "frame") + navigation[:succ], :class => sid)
+        content_tag(:div, navigation[:prev] + content_tag(:div, content_tag(:ul, raw(slide_images(params))), :class => "frame") + navigation[:succ], :class => "gallery #{params[:class]}", :style => "width: #{Spree::SlideshowType.enable(params[:category] || "home").first.slide_width}px; height: #{Spree::SlideshowType.enable(params[:category] || "home").first.slide_height}px;")
       end
     end
 
@@ -33,28 +32,30 @@ module Spree
 
     def enable_navigation(params)
       container_nav = params[:container_navigation] || nil
-      cl_nav_container = params[:class_navigation_container] || nil
-      cl_nav_link = params[:class_navigation_link] || nil
+      cl_nav_container = params[:class_navigation_container].split(",") || nil
+      cl_nav_link = params[:class_navigation_link].split(",") || nil
       category = params[:category] || "home"
       slideshow = Spree::SlideshowType.enable(category)
       if !slideshow.blank?
         if slideshow.first.enable_navigation
-          prev = link_to("prev", "#", :class => "prev")
-          succ = link_to("next", "#", :class => "next")
+          prev = link_to("prev", "#", :class => "prev #{cl_nav_link[0]}")
+          succ = link_to("next", "#", :class => "next #{cl_nav_link[1]}")
         else
           prev = ""
           succ = ""
         end
+        
         unless container_nav.blank?
-          prev = content_tag(container_nav.to_sym, prev)
-          succ = content_tag(container_nav.to_sym, succ)
+          prev = content_tag(container_nav.to_sym, prev, :class => cl_nav_container[0])
+          succ = content_tag(container_nav.to_sym, succ, :class => cl_nav_container[1])
         end
+        
         res = Hash.new()
         res[:prev] = prev
         res[:succ] = succ
         return res
       end
     end
-
+    
   end
 end

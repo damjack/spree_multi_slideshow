@@ -9,7 +9,7 @@ Basic Installation
 
 1. Add the following to your Gemfile
 <pre>
-  gem 'spree_multi_slideshow', :git => 'git://github.com/damianogiacomello/spree_multi_slideshow'
+  gem 'spree_multi_slideshow', '~> 1.0.0'
 </pre>
 2. Run `bundle install`
 3. To copy and apply migrations run:
@@ -35,7 +35,7 @@ displays slides for which the category column, dafault is "home"
 </pre>
 style layout for slideshow: [small, medium, slide, default => custom]
 <pre>
-	<%= insert_slideshow(:container_navigation => "span", :class_navigation_container => "my_class", :class_navigation_link => "my_class") %>
+	<%= insert_slideshow(:container_navigation => "tag_container", :class_navigation_container => "my_class_container", :class_navigation_link => "my_class_navigation_prev, my_class_navigation_next") %>
 </pre>
 added a content_tag for navigatin button, default is nil
 

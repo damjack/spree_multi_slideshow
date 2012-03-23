@@ -2,61 +2,49 @@
  *= require store/spree_core
 */
 
-.gallery{
-	width: 900px;
-	height:276px;
-	padding:15px 0 0;
+.gallery {
 	overflow: hidden;
 	z-index:0;
 	color:#fff;
 	background:url(/assets/images/bg-gallery.png) no-repeat 20px 0;
-	margin-bottom:-2px;
 }
-.gallery .frame{
-	width:900px;
-	overflow:hidden;
+.gallery .frame {
 	position:relative;
-	height:251px;
 }
-.gallery .frame ul{
+.gallery .frame ul {
 	position:absolute;
-	overflow:hidden;
 	margin:0;
 	padding:0;
 	list-style:none;
-	width:900px;
-	height:251px;
 }
-.gallery .frame li{
-	width:900px;
-	height:251px;
+.gallery .frame li {
 	position:absolute;
 	top:0;
 	left:0;
 	background:#f1f1f1;
 }
-.gallery .frame li.active{z-index:2;}
-.gallery img{
+.gallery .frame li.active {z-index:2;}
+.gallery img {
 	display:block;
 }
 .gallery .prev,
-.gallery .next{
-	position:absolute;
+.gallery .next {
+	/*position:absolute;
 	top:160px;
 	left:47px;
 	background:url(/assets/images/sprite01.png) no-repeat;
 	width:39px;
-	height:39px;
+	height:39px;*/
 	text-indent:-9999px;
 	overflow:hidden;
 	z-index:3;
 }
-.gallery .next{
+.gallery .next {
 	right:56px;
 	left:auto;
 	background-position: 0 -43px;
 }
-.gallery .text-holder{
+.gallery .text-holder {
 	background:url(/assets/images/bg-text02.png) no-repeat;
 	width: 234px;
 	height:98px;
@@ -67,7 +55,7 @@
 	font:bold 33px/40px 'Candrb', Arial, Helvetica, sans-serif;
 	text-align:center;
 }
-.gallery .text-holder strong span{
+.gallery .text-holder strong span {
 	font-size:52px;
 	display:block;
 }

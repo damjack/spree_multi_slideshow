@@ -1,33 +1,35 @@
-<%= render :partial => 'admin/shared/slideshow_type_tabs', :locals => {:current => 'Slide Image'} %>
+<%= render :partial => 'spree/admin/shared/slideshow_type_tabs', :locals => {:current => 'Slide Image'} %>
 
 <%= javascript_include_tag 'admin/slides/index.js' %>
 <div id="slides" data-hook></div>
 <p data-hook="links">
-    <%= link_to icon('add') + ' ' + t("slideshow_type.slide.new_page"), new_admin_slideshow_type_slide_url(@slideshow_type), :id => 'new_slide_link' %>
+	<%= link_to icon('add') + ' ' + t("slideshow_type.slide.new_page"), new_admin_slideshow_type_slide_url(@slideshow_type), :id => 'new_slide_link' %>
 </p>
 
 <table class="index sortable" data-hook="slide_table">
-  <tr data-hook="images_header">
-    <th><%= t("slideshow_type.slide.thumbnail") %></th>
-    <th><%= t("slideshow_type.slide.title") %></th>
-	<th><%= t("slideshow_type.slide.url") %></th>
-    <th><%= t(:action) %></th>
-  </tr>
+	<tr data-hook="images_header">
+		<th><%= t("slideshow_type.slide.thumbnail") %></th>
+		<th><%= t("slideshow_type.slide.title") %></th>
+		<th><%= t("slideshow_type.slide.position") %></th>
+		<th><%= t("slideshow_type.slide.url") %></th>
+		<th><%= t(:action) %></th>
+	</tr>
 
-  <% Slide.find_all_by_slideshow_type_id(@slideshow_type.id).each do |slide| %>
-    <tr id="<%= dom_id(slide) %>" data-hook="images_row">
-      <td>
-        <span class="handle"></span>
-        <%= link_to image_tag(slide.image.url(:thumbnail)), slide.image.url(:medium) %>
-      </td>
-	  <td><%= slide.title %></td>
-	  <td><%= slide.url %></td>
-      <td class="actions">
-        <%= link_to_with_icon 'edit', t(:edit), edit_admin_slideshow_type_slide_url(@slideshow_type, slide), :class => 'edit' %>
-        &nbsp;
-        <%= link_to_delete slide, {:url => admin_slideshow_type_slide_url(@slideshow_type, slide) }%>
-      </td>
-    </tr>
-  <% end %>
+	<% Spree::Slide.find_all_by_slideshow_type_id(@slideshow_type.id).each do |slide| %>
+	<tr id="<%= dom_id(slide) %>" data-hook="images_row">
+		<td>
+			<span class="handle"></span>
+			<%= link_to image_tag(slide.image.url(:thumbnail)), slide.image.url(:medium) %>
+		</td>
+		<td><%= slide.title %></td>
+		<td><%= slide.position + 1 %></td>
+		<td><%= slide.url %></td>
+		<td class="actions">
+			<%= link_to_with_icon 'edit', t(:edit), edit_admin_slideshow_type_slide_url(@slideshow_type, slide), :class => 'edit' %>
+			&nbsp;
+			<%= link_to_delete slide, {:url => admin_slideshow_type_slide_url(@slideshow_type, slide) }%>
+		</td>
+	</tr>
+	<% end %>
 
 </table>

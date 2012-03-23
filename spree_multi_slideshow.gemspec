@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   # s.rubyforge_project = 'actionmailer'
 
   #s.files         = `git ls-files`.split("\n")
-  s.files        = Dir['CHANGELOG', 'README.md', 'LICENSE', 'lib/**/*', 'app/**/*']
+  s.files        = Dir['CHANGELOG', 'README.md', 'LICENSE', 'lib/**/*', 'app/**/*', 'db/**/*', 'config/**/*']
   s.require_path = 'lib'
   s.requirements << 'none'
 
@@ -20,6 +20,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'spree_auth'
   s.add_dependency 'formtastic'
   s.add_dependency 'paperclip', '>= 2.5.0'
+  s.add_dependency 'ckeditor', '3.7.0.rc3'
+  
   s.add_development_dependency 'rspec-rails'
 end
 

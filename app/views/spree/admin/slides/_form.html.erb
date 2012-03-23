@@ -1,6 +1,7 @@
 <%= f.inputs do %>
-  <%= f.input :title %>
-  <%= f.input :url %>
-  <%= f.input :image, :as => :file, :label => I18n.t("slideshow_type.slide.image.one").capitalize, :hint => f.object.image.blank? ? f.template.content_tag(:span, "No Image Yet") : f.template.image_tag(f.object.image.url(:thumbnail)) %>
-  <%= f.input :slideshow_type_id, :as => :hidden, :value => params[:slideshow_type_id] %>
+	<%= f.input :title %>
+	<%= f.input :url %>
+	<%= f.cktext_area :content, :input_html => { :value => @slide.content }, :label => t("slideshow_type.slide.content") %>
+	<%= f.input :image, :as => :file, :label => I18n.t("slideshow_type.slide.image.one").capitalize, :hint => f.object.image.blank? ? f.template.content_tag(:span, "No Image Yet") : f.template.image_tag(f.object.image.url(:thumbnail)) %>
+	<%= f.input :slideshow_type_id, :as => :hidden, :value => params[:slideshow_type_id] %>
 <% end %>

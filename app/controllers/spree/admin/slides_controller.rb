@@ -1,6 +1,6 @@
 module Spree
   module Admin
-    class SlidesController < BaseController
+    class SlidesController < ResourceController
       before_filter :load_data
 
       def load_data

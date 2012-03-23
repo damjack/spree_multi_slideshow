@@ -1,6 +1,6 @@
-<%= render :partial => 'admin/shared/slideshow_type_tabs', :locals => {:current => 'Slide Image'} %>
+<%= render :partial => 'spree/admin/shared/slideshow_type_tabs', :locals => {:current => 'Slide Image'} %>
 <h1><%= t("slideshow_type.slide.editing_page") %></h1>
-<%= render 'shared/error_messages', :target => @slide %>
+<%= render 'spree/shared/error_messages', :target => @slide %>
 
 <%= semantic_form_for [:admin, @slideshow_type, @slide], :html => { :multipart => true } do |f| %>
   <table class="basic-table" data-hook="edit_image">
