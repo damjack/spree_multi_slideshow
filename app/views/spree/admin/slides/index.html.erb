@@ -6,7 +6,7 @@
 	<%= link_to icon('add') + ' ' + t("slideshow_type.slide.new_page"), new_admin_slideshow_type_slide_url(@slideshow_type), :id => 'new_slide_link' %>
 </p>
 
-<table class="index sortable" data-hook="slide_table">
+<table class="index sortable" data-hook="slide_table" data-hook data-sortable-link="<%= update_positions_admin_slideshow_type_slides_url %>">
 	<tr data-hook="images_header">
 		<th><%= t("slideshow_type.slide.thumbnail") %></th>
 		<th><%= t("slideshow_type.slide.title") %></th>

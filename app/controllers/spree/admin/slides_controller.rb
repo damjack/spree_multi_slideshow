@@ -13,6 +13,7 @@ module Spree
         end
 
         respond_to do |format|
+          format.html { redirect_to admin_slideshow_type_slides_url(params[:slideshow_type_id]) }
           format.js  { render :text => 'Ok' }
         end
       end
