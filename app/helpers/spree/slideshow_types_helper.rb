@@ -23,7 +23,7 @@ module Spree
         slides = Spree::Slide.where("slideshow_type_id = ?", slideshow.first.id).limit(max).sort_by { |slide| slide.position }
 
         slides.map do |slide|
-          content_tag(:li, raw(link_to(image_tag(slide.image.url(style.to_sym)), slide.url, { :title => slide.title })) + raw(content_tag(:div, content_tag(:strong, raw(slide.title)), :class => "text-holder")))
+          content_tag(:li, raw(link_to(image_tag(slide.image.url(style.to_sym)), slide.url, { :title => slide.title })) + raw(content_tag(:div, content_tag(:strong, raw(slide.title)) + content_tag(:p, raw(slide.content)), :class => "text-holder")))
         end.join
       else
         false
