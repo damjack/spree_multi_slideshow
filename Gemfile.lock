@@ -45,6 +45,7 @@ PATH
   remote: .
   specs:
     spree_multi_slideshow (1.0.0)
+      ckeditor (= 3.7.0.rc3)
       formtastic
       paperclip (>= 2.5.0)
       spree_auth
@@ -99,17 +100,10 @@ GEM
       builder (>= 2.0.0)
     builder (3.0.0)
     cancan (1.6.7)
-    capybara (1.0.1)
-      mime-types (>= 1.16)
-      nokogiri (>= 1.3.3)
-      rack (>= 1.0.0)
-      rack-test (>= 0.5.4)
-      selenium-webdriver (~> 2.0)
-      xpath (~> 0.1.4)
-    childprocess (0.3.0)
-      ffi (~> 1.0.6)
+    ckeditor (3.7.0.rc3)
+      mime-types (~> 1.17.2)
+      orm_adapter (~> 0.0.6)
     cocaine (0.2.1)
-    database_cleaner (0.6.7)
     deface (0.8.0)
       nokogiri (~> 1.5.0)
       rails (>= 3.0.9)
@@ -119,11 +113,7 @@ GEM
       warden (~> 1.0.3)
     diff-lcs (1.1.3)
     erubis (2.7.0)
-    factory_girl (1.3.3)
-    faker (1.0.0)
-      i18n (~> 0.4)
     ffaker (1.12.1)
-    ffi (1.0.11)
     formtastic (2.0.2)
       rails (~> 3.0)
     highline (1.6.8)
@@ -203,12 +193,6 @@ GEM
       activesupport (~> 3.0)
       railties (~> 3.0)
       rspec (~> 2.6.0)
-    rubyzip (0.9.5)
-    selenium-webdriver (2.16.0)
-      childprocess (>= 0.2.5)
-      ffi (~> 1.0.9)
-      multi_json (~> 1.0.4)
-      rubyzip
     sprockets (2.0.3)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -224,21 +208,15 @@ GEM
     tzinfo (0.3.31)
     warden (1.0.6)
       rack (>= 1.0)
-    xpath (0.1.4)
-      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  capybara (= 1.0.1)
-  database_cleaner (= 0.6.7)
-  factory_girl
-  faker
+  ckeditor (= 3.7.0.rc3)
   formtastic
-  nokogiri
   paperclip (>= 2.5.0)
-  rspec-rails (= 2.6.1)
+  rspec-rails
   spree!
   spree_multi_slideshow!
   sqlite3

@@ -1,7 +1,7 @@
 module Spree
   class SlideshowType < ActiveRecord::Base
 
-    belongs_to :slide
+    has_many :slides
 
     validates :slide_number, :slide_width, :slide_height, :presence => true
     validates_uniqueness_of :category

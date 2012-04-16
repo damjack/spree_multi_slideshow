@@ -19,7 +19,7 @@
 	<tr id="<%= dom_id(slide) %>" data-hook="images_row">
 		<td>
 			<span class="handle"></span>
-			<%= link_to image_tag(slide.image.url(:thumbnail)), slide.image.url(:medium) %>
+			<%= link_to image_tag(slide.attachment.url(:thumbnail)), slide.attachment.url(:medium) %>
 		</td>
 		<td><%= slide.title %></td>
 		<td><%= slide.position %></td>
