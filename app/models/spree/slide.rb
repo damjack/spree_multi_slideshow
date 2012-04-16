@@ -21,7 +21,7 @@ module Spree
                   :medium => "-gravity center",
                   :slide => "-gravity center",
                   :custom => "-gravity center"
-            }
+            } 
     
     after_post_process :find_dimensions
     #process_in_background :image UTILE MA OCCORRE ATTIVARE ANCHE LA GEMMA DELAYED-PAPERCLIP
@@ -58,8 +58,10 @@ module Spree
       filename = temporary.path unless temporary.nil?
       filename = image.path if filename.blank?
       geometry = Paperclip::Geometry.from_file(filename)
-      self.slide_width  = geometry.width
-      self.slide_height = geometry.height
+      sst = SlideshowType.find(self.slideshow_type_id)
+      sst.slide_width  = geometry.width
+      sst.slide_height = geometry.height
+      sst.save
     end
 
   end
