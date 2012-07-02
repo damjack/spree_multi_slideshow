@@ -14,7 +14,7 @@ module Spree
                   :small => "300x100#",
                   :medium => "600x200#",
                   :slide => "900x300#",
-                  :custom => lambda {|instance| "#{instance.attachment_width}x#{instance.attachment_height}#"}
+                  :custom => lambda {|instance| "#{instance.instance.attachment_width}x#{instance.instance.attachment_height}#"}
             },
             :convert_options => {
                   :thumbnail => "-gravity center",
