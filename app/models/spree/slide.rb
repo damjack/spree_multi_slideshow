@@ -5,7 +5,7 @@ module Spree
     validates_presence_of :slideshow_type_id
     
     attr_accessor :attachment_width, :attachment_height
-    
+    attr_accessible :title, :url, :attachment_width, :attachment_height, :content, :slideshow_type_id
     has_attached_file :attachment,
             :url  => "/spree/slides/:id/:style_:basename.:extension",
             :path => ":rails_root/public/spree/slides/:id/:style_:basename.:extension",
@@ -32,7 +32,7 @@ module Spree
               :storage => 's3',
               :s3_credentials => Rails.root.join('config', 's3.yml')
             }
-    elsif (FileTest.exist?(Rails.root.join('config', 's3.yml')) && !ENV['S3_KEY'].blank? && !ENV['S3_SECRET'].blank? && !ENV['S3_BUCKET'].blank?)
+    elsif (FileTest.exist?(Rails.root.join('config', 's3.yml')) &&!ENV['S3_KEY'].blank? && !ENV['S3_SECRET'].blank? && !ENV['S3_BUCKET'].blank?)
       S3_OPTIONS = {
               :storage => 's3',
               :s3_credentials => {
