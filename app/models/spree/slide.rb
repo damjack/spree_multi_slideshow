@@ -5,7 +5,7 @@ module Spree
     validates_presence_of :slideshow_type_id
     
     attr_accessor :attachment_width, :attachment_height
-    attr_accessible :title, :url, :attachment_width, :attachment_height, :content, :slideshow_type_id
+    attr_accessible :title, :url, :attachment_width, :attachment_height, :content, :slideshow_type_id, :attachment
     has_attached_file :attachment,
             :url  => "/spree/slides/:id/:style_:basename.:extension",
             :path => ":rails_root/public/spree/slides/:id/:style_:basename.:extension",
