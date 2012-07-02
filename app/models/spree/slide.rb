@@ -27,12 +27,12 @@ module Spree
     #process_in_background :image UTILE MA OCCORRE ATTIVARE ANCHE LA GEMMA DELAYED-PAPERCLIP
     
     # Load S3 settings
-    if (!YAML.load_file(Rails.root.join('config', 's3.yml'))[Rails.env].blank?)
+    if ( FileTest.exist?(Rails.root.join('config', 's3.yml')) && !YAML.load_file(Rails.root.join('config', 's3.yml'))[Rails.env].blank?)
       S3_OPTIONS = {
               :storage => 's3',
               :s3_credentials => Rails.root.join('config', 's3.yml')
             }
-    elsif (!ENV['S3_KEY'].blank? && !ENV['S3_SECRET'].blank? && !ENV['S3_BUCKET'].blank?)
+    elsif (FileTest.exist?(Rails.root.join('config', 's3.yml')) && !ENV['S3_KEY'].blank? && !ENV['S3_SECRET'].blank? && !ENV['S3_BUCKET'].blank?)
       S3_OPTIONS = {
               :storage => 's3',
               :s3_credentials => {
