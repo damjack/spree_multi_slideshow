@@ -9,12 +9,14 @@ module Spree
     has_attached_file :attachment,
             :url  => "/spree/slides/:id/:style_:basename.:extension",
             :path => ":rails_root/public/spree/slides/:id/:style_:basename.:extension",
-            :styles => {
+            :styles => lambda {|a|
+              {
                   :thumbnail => "100x33#",
-                  :small => "300x100#",
+                  :small =>  "300x100#",
                   :medium => "600x200#",
-                  :slide => "900x300#",
-                  :custom => lambda {|instance| "#{instance.instance.attachment_width}x#{instance.instance.attachment_height}#"}
+                  :slide =>  "900x300#",
+                  :custom => "#{a.instance.attachment_width}x#{a.instance.attachment_height}#"
+              }
             },
             :convert_options => {
                   :thumbnail => "-gravity center",
