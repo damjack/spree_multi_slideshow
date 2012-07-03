@@ -15,7 +15,7 @@ module Spree
                   :small =>  "300x100#",
                   :medium => "600x200#",
                   :slide =>  "900x300#",
-                  :custom => "#{a.instance.attachment_width}x#{a.instance.attachment_height}#"
+                  :custom => "998x320#"
               }
             },
             :convert_options => {
