@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_multi_slideshow'
-  s.version     = '1.0.1'
+  s.version     = '1.1.0'
   s.summary     = 'Extension to manage multi slideshow for Spree Shop'
   s.required_ruby_version = '>= 1.8.7'
 
@@ -18,10 +18,10 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'spree_core'
   s.add_dependency 'spree_auth'
-  s.add_dependency 'aws-sdk', '~> 1.3.4'
+  s.add_dependency 'aws-sdk'
   s.add_dependency 'formtastic'
-  s.add_dependency 'paperclip', '>= 2.5.0'
-  s.add_dependency 'ckeditor', '3.7.1'
+  s.add_dependency 'paperclip'
+  s.add_dependency 'ckeditor'
   
   s.add_development_dependency 'rspec-rails'
 end
