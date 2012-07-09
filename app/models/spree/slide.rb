@@ -1,7 +1,9 @@
 module Spree
-  class Slide < ActiveRecord::Base
-    
+  class Slide < ActiveRecord::Base    
     belongs_to :slideshow_type
+    
+    attr_accessible :title, :url, :content, :attachment, :position
+    
     validates_presence_of :slideshow_type_id
     
     attr_accessor :attachment_width, :attachment_height

@@ -1,7 +1,8 @@
 module Spree
   class SlideshowType < ActiveRecord::Base
-
     has_many :slides
+    
+    attr_accessible :category, :enabled, :slide_height, :slide_width, :slide_number, :enable_navigation
 
     validates :slide_number, :slide_width, :slide_height, :presence => true
     validates_uniqueness_of :category
