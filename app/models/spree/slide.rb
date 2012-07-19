@@ -1,11 +1,10 @@
 module Spree
   class Slide < ActiveRecord::Base
-    
     belongs_to :slideshow_type
-    validates_presence_of :slideshow_type_id
     
     attr_accessor :attachment_width, :attachment_height
     attr_accessible :title, :url, :attachment_width, :attachment_height, :content, :slideshow_type_id, :attachment
+    
     has_attached_file :attachment,
             :url  => "/spree/slides/:id/:style_:basename.:extension",
             :path => ":rails_root/public/spree/slides/:id/:style_:basename.:extension",
@@ -26,7 +25,9 @@ module Spree
                   :custom => "-gravity center"
             } 
     
-    #process_in_background :image UTILE MA OCCORRE ATTIVARE ANCHE LA GEMMA DELAYED-PAPERCLIP
+    validates_presence_of :slideshow_type_id
+    validates_attachment_presence :attachment
+    validates_attachment_content_type :attachment, :content_type => ['image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/x-png', 'image/pjpeg'], :message => "deve essere JPG, JPEG, PNG o GIF"
     
     # Load S3 settings
     if ( FileTest.exist?(Rails.root.join('config', 's3.yml')) && !YAML.load_file(Rails.root.join('config', 's3.yml'))[Rails.env].blank?)

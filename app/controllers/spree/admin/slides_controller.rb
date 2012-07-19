@@ -15,7 +15,6 @@ module Spree
       end
 
       protected
-
       def location_after_save
         admin_slideshow_type_slides_url(@slideshow_type)
       end
