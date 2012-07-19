@@ -6,7 +6,7 @@
   <table class="basic-table" data-hook="edit_image">
     <tr data-hook="thumbnail">
       <td><%= t(:thumbnail) %>:</td>
-      <td><%= link_to image_tag(@slide.image.url(:small)), @slide.image.url(:medium) %></td>
+      <td><%= link_to image_tag(@slide.attachment.url(:small)), @slide.image.url(:medium) %></td>
     </tr>
     <%= render :partial => 'form', :locals => { :f => f } %>
   </table>

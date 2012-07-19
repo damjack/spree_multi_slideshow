@@ -22,7 +22,7 @@ module SlideshowTypesHelper
       slides = Slide.where("slideshow_type_id = ?", slideshow.first.id).limit(max).sort_by { |slide| slide.position }
 
       slides.map do |slide|
-        content_tag(:li, raw(link_to(image_tag(slide.image.url(style.to_sym)), slide.url, { :title => slide.title })) + raw(content_tag(:div, content_tag(:strong, raw(slide.title)), :class => "text-holder")))
+        content_tag(:li, raw(link_to(image_tag(slide.attachment.url(style.to_sym)), slide.url, { :title => slide.title })) + raw(content_tag(:div, content_tag(:strong, raw(slide.title)), :class => "text-holder")))
       end.join
     else
       false
