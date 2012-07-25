@@ -3,7 +3,7 @@ module Spree
     belongs_to :slideshow_type
     
     attr_accessor :attachment_width, :attachment_height
-    attr_accessible :title, :url, :content, :attachment, :position, :attachment_width, :attachment_height    
+    attr_accessible :title, :url, :attachment_width, :attachment_height, :content, :slideshow_type_id, :attachment, :position    
     
     has_attached_file :attachment,
             :url  => "/spree/slides/:id/:style_:basename.:extension",
@@ -28,12 +28,12 @@ module Spree
     validates_attachment_content_type :attachment, :content_type => ['image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/x-png', 'image/pjpeg'], :message => "deve essere JPG, JPEG, PNG o GIF"
     
     # Load S3 settings
-    if (!YAML.load_file(Rails.root.join('config', 's3.yml'))[Rails.env].blank?)
+    if (FileTest.exist?(Rails.root.join('config', 's3.yml')) && !YAML.load_file(Rails.root.join('config', 's3.yml'))[Rails.env].blank?)
       S3_OPTIONS = {
               :storage => 's3',
               :s3_credentials => Rails.root.join('config', 's3.yml')
             }
-    elsif (!ENV['S3_KEY'].blank? && !ENV['S3_SECRET'].blank? && !ENV['S3_BUCKET'].blank?)
+    elsif (FileTest.exist?(Rails.root.join('config', 's3.yml')) && !ENV['S3_KEY'].blank? && !ENV['S3_SECRET'].blank? && !ENV['S3_BUCKET'].blank?)
       S3_OPTIONS = {
               :storage => 's3',
               :s3_credentials => {
