@@ -8,7 +8,7 @@ jQuery(function($) {
 // galleries init
 function initGalleries(){
 	// main banner slideshow
-	jQuery('div.gallery').fadeGallery({
+	jQuery('div.carousel').fadeGallery({
 		autoRotation: true,
 		switchTime: 5000, //ms
 		duration: 800 //ms
@@ -18,7 +18,7 @@ function initGalleries(){
 // slideshow plugin
 jQuery.fn.fadeGallery = function(_options){
 	var _options = jQuery.extend({
-		slideElements:'div.frame > ul > li',
+		slideElements:'div.carousel-inner > ul > li',
 		pagerGener: false,
 		pagerHold: false,
 		pagerLinks:'ul.nav-list li',
