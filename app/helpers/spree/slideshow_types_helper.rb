@@ -3,12 +3,6 @@ module Spree
   module SlideshowTypesHelper
 
     def insert_slideshow(params={})
-      @content_for_head_added ||= false
-      if not @content_for_head_added
-        content_for(:head) { stylesheet_link_tag 'store/spree_multi_slideshow.css' }
-        content_for(:head) { javascript_include_tag 'store/spree_multi_slideshow.js' }
-        @content_for_head_added = true
-      end
       if slide_images(params)
         navigation = enable_navigation(params)
         content_tag(:div, navigation[:prev] + content_tag(:div, content_tag(:ul, raw(slide_images(params))), :class => "gallery-inner clearfix") + navigation[:succ], :class => "gallery #{params[:class]}", :style => "width: #{Spree::SlideshowType.enable(params[:category] || "home").first.slide_width}px; height: #{Spree::SlideshowType.enable(params[:category] || "home").first.slide_height}px;")
