@@ -1,3 +1,4 @@
+# encoding: UTF-8
 module Spree
   module SlideshowTypesHelper
 
@@ -10,7 +11,7 @@ module Spree
       end
       if slide_images(params)
         navigation = enable_navigation(params)
-        content_tag(:div, navigation[:prev] + content_tag(:div, content_tag(:ul, raw(slide_images(params))), :class => "carousel-inner") + navigation[:succ], :class => "carousel #{params[:class]}", :style => "width: #{Spree::SlideshowType.enable(params[:category] || "home").first.slide_width}px; height: #{Spree::SlideshowType.enable(params[:category] || "home").first.slide_height}px;")
+        content_tag(:div, navigation[:prev] + content_tag(:div, content_tag(:ul, raw(slide_images(params))), :class => "gallery-inner clearfix") + navigation[:succ], :class => "gallery #{params[:class]}", :style => "width: #{Spree::SlideshowType.enable(params[:category] || "home").first.slide_width}px; height: #{Spree::SlideshowType.enable(params[:category] || "home").first.slide_height}px;")
       end
     end
 
@@ -23,7 +24,12 @@ module Spree
         slides = Spree::Slide.where("slideshow_type_id = ?", slideshow.first.id).limit(max).sort_by { |slide| slide.position }
 
         slides.map do |slide|
-          content_tag(:li, raw(link_to(image_tag(slide.attachment.url(style.to_sym)), slide.url, { :title => slide.title })) + raw(content_tag(:div, content_tag(:strong, raw(slide.title)) + content_tag(:p, raw(slide.content)), :class => "text-holder")))
+          if params[:enable_content]
+            link_content = content_tag(:div, content_tag(:strong, raw(slide.title)) + content_tag(:p, raw(slide.content)), :class => "text-holder")
+          else
+            link_content = ""
+          end
+          content_tag(:li, raw(link_to(image_tag(slide.attachment.url(style.to_sym)), slide.url, { :title => slide.title })) + raw(link_content))
         end.join
       else
         false
@@ -31,28 +37,20 @@ module Spree
     end
 
     def enable_navigation(params)
-      container_nav = params[:container_navigation] || nil
-      cl_nav_container = params[:class_navigation_container].split(",") || nil
-      cl_nav_link = params[:class_navigation_link].split(",") || nil
       category = params[:category] || "home"
       slideshow = Spree::SlideshowType.enable(category)
       if !slideshow.blank?
         if slideshow.first.enable_navigation
-          prev = link_to("prev", "#", :class => "prev #{cl_nav_link[0]}")
-          succ = link_to("next", "#", :class => "next #{cl_nav_link[1]}")
+          prev = link_to("‹", "#", :class => "gallery-control left")
+          succ = link_to("›", "#", :class => "gallery-control right")
         else
           prev = ""
           succ = ""
         end
         
-        unless container_nav.blank?
-          prev = content_tag(container_nav.to_sym, prev, :class => cl_nav_container[0])
-          succ = content_tag(container_nav.to_sym, succ, :class => cl_nav_container[1])
-        end
-        
         res = Hash.new()
-        res[:prev] = prev
-        res[:succ] = succ
+        res[:prev] = content_tag(:div, prev, :class => "carousel-control left")
+        res[:succ] = content_tag(:div, succ, :class => "carousel-control right")
         return res
       end
     end

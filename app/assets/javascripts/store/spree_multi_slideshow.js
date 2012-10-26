@@ -1,5 +1,3 @@
-//= require store/spree_core
-
 // page init
 jQuery(function($) {
 	initGalleries();
@@ -8,7 +6,7 @@ jQuery(function($) {
 // galleries init
 function initGalleries(){
 	// main banner slideshow
-	jQuery('div.carousel').fadeGallery({
+	jQuery('div.gallery').fadeGallery({
 		autoRotation: true,
 		switchTime: 5000, //ms
 		duration: 800 //ms
@@ -18,12 +16,12 @@ function initGalleries(){
 // slideshow plugin
 jQuery.fn.fadeGallery = function(_options){
 	var _options = jQuery.extend({
-		slideElements:'div.carousel-inner > ul > li',
+		slideElements:'div.gallery-inner > ul > li',
 		pagerGener: false,
 		pagerHold: false,
 		pagerLinks:'ul.nav-list li',
-		btnNext:'a.next',
-		btnPrev:'a.prev',
+		btnNext:'a.gallery-control.right',
+		btnPrev:'a.gallery-control.left',
 		btnPlayPause:'a.play-pause',
 		btnPlay:'a.play',
 		btnPause:'a.pause',

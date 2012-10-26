@@ -1,51 +1,73 @@
-.carousel {
+.left {
+  float: left !important;
+}
+.right {
+  float: right !important;
+}
+.gallery {
+  position: relative;
   overflow: hidden;
   z-index:0;
   color:#fff;
-  background:url(store/gallery/bg-gallery.png) no-repeat 20px 0;
+  margin:auto;
 }
-.carousel .carousel-inner {
+.gallery .gallery-inner {
   position:relative;
 }
-.carousel .carousel-inner ul {
+.gallery .gallery-inner ul {
   position:absolute;
   margin:0;
   padding:0;
   list-style:none;
 }
-.carousel .carousel-inner li {
+.gallery .gallery-inner li {
   position:absolute;
   top:0;
   left:0;
-  background:#f1f1f1;
+  background: transparent;
 }
-.carousel .carousel-inner li.active {z-index:2;}
-.carousel img {
+.gallery .gallery-inner li.active {z-index:2;}
+.gallery img {
   display:block;
 }
-.carousel .prev,
-.carousel .next {
-  text-indent:-9999px;
-  overflow:hidden;
-  z-index:3;
-}
-.gallery .next {
-  right:56px;
-  left:auto;
-  background-position: 0 -43px;
-}
-.carousel .text-holder {
-  background:url(store/gallery/bg-text02.png) no-repeat;
-  width: 234px;
-  height:98px;
-  padding:45px 0 0 50px;
-  position:absolute;
-  right:1px;
-  bottom:1px;
-  font:bold 33px/40px 'Candrb', Arial, Helvetica, sans-serif;
+.gallery .text-holder {
+  position: absolute;
   text-align:center;
 }
-.carousel .text-holder strong span {
-  font-size:52px;
-  display:block;
+.gallery-control {
+  font-size: 60px;
+  font-weight: 100;
+  line-height: 27px;
+  color: white;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+}
+a.gallery-control:hover {
+  text-decoration: none;
+  color: white;
+}
+.carousel-control {
+  position: absolute;
+  top: 40%;
+  left: 15px;
+  width: 40px;
+  height: 40px;
+  margin-top: -20px;
+  font-size: 60px;
+  font-weight: 100;
+  line-height: 30px;
+  color: white;
+  text-align: center;
+  background: #222;
+  border: 3px solid white;
+  -webkit-border-radius: 23px;
+  -moz-border-radius: 23px;
+  border-radius: 23px;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+.carousel-control.right {
+  left: auto;
+  right: 15px;
 }

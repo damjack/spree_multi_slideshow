@@ -35,8 +35,8 @@ displays slides for which the category column, dafault is "home"
 </pre>
 style layout for slideshow: [small, medium, slide, default => custom]
 <pre>
-	<%= insert_slideshow(:container_navigation => "tag_container", :class_navigation_container => "my_class_container_prev, my_class_container_next", :class_navigation_link => "my_class_navigation_prev, my_class_navigation_next") %>
+	<%= insert_slideshow(:enable_content => true/false :style => "custom", :category => "custom") %>
 </pre>
-added a content_tag and class for navigatin button, default is nil
+added a content_tag for display title and description of slide
 
 Copyright (c) 2012 [Damiano Giacomello], released under the New BSD License
