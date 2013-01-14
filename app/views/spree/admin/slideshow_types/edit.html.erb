@@ -1,8 +1,7 @@
-<h1><%= t("slideshow_type.editing_page") %></h1>
-	<%= render :partial => 'spree/admin/shared/slideshow_type_tabs', :locals => {:current => 'Slideshow_type Details'} %>
-	<%= render "spree/shared/error_messages", :target => @slideshow_type %>
+<%= render :partial => 'spree/admin/shared/slideshow_type_tabs', :locals => { :current => 'Slideshow_type Details' } %>
+<%= render :partial => 'spree/shared/error_messages', :locals => { :target => @product } %>
 
-	<%= semantic_form_for([:admin, @slideshow_type]) do |f| %>
-		<%= render :partial => "form", :locals => { :f => f } %>
-		<%= render :partial => 'spree/admin/shared/edit_resource_links' %>
-	<% end %>
+<%= form_for([:admin, @slideshow_type], :html => { :multipart => true }) do |f| %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+  <%= render :partial => 'spree/admin/shared/edit_resource_links' %>
+<% end %>

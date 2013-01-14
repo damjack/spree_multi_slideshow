@@ -6,7 +6,7 @@ class CreateSlideshowTypes < ActiveRecord::Migration
       t.integer :slide_height, :default => 400
       t.integer :slide_width, :default => 900
       t.integer :slide_number, :default => 4
-      t.boolean :enable_navigation, :default => true
+      t.boolean :enable_navigation, :default => false
       
       t.timestamps
     end

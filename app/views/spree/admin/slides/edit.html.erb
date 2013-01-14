@@ -2,7 +2,7 @@
 <h1><%= t("slideshow_type.slide.editing_page") %></h1>
 <%= render 'spree/shared/error_messages', :target => @slide %>
 
-<%= semantic_form_for [:admin, @slideshow_type, @slide], :html => { :multipart => true } do |f| %>
+<%= form_for [:admin, @slideshow_type, @slide], :html => { :multipart => true } do |f| %>
   <table class="basic-table" data-hook="edit_image">
     <tr data-hook="thumbnail">
       <td><%= t(:thumbnail) %>:</td>

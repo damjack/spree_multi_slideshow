@@ -43,6 +43,7 @@ it:
               slide_height: Altezza
               slide_number: Numero Slide
               enable_navigation: Tasti navigazione attivi?
+              enable_pagination: "Paginazione attiva?"
         slide:
           attributes:
             slide:

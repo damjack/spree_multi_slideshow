@@ -29,6 +29,8 @@ module Spree
     validates_attachment_presence :attachment
     validates_attachment_content_type :attachment, :content_type => ['image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/x-png', 'image/pjpeg'], :message => "deve essere JPG, JPEG, PNG o GIF"
     
+    default_scope order("position ASC")
+    
     # Load S3 settings
     if ( FileTest.exist?(Rails.root.join('config', 's3.yml')) && !YAML.load_file(Rails.root.join('config', 's3.yml'))[Rails.env].blank?)
       S3_OPTIONS = {

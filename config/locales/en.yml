@@ -43,6 +43,7 @@ en:
               slide_height: Height
               slide_number: Slide Number
               enable_navigation: Next and Prev enable?
+              enable_pagination: "Pagination active?"
       slide:
         attributes:
           slide:

@@ -1,7 +1,7 @@
 module Spree
   module Admin
     class SlidesController < ResourceController
-      before_filter :load_data, :only => [:index, :new, :show, :edit]
+      before_filter :load_data, :except => [:destroy]
       
       def update_positions
         params[:positions].each do |id, index|
@@ -16,11 +16,11 @@ module Spree
 
       protected
       def location_after_save
-        admin_slideshow_type_slides_url(@slideshow_type)
+        edit_admin_slideshow_type_url(@slideshow_type)
       end
       
       def load_data
-        @slideshow_type = Spree::SlideshowType.find(params[:slideshow_type_id].to_i)
+        @slideshow_type = Spree::SlideshowType.find(params[:slideshow_type_id])
       end
 
     end
