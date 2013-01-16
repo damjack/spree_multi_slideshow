@@ -1,8 +1,7 @@
-<h1><%= t("slideshow_type.editing_page") %></h1>
-	<%= render :partial => 'admin/shared/slideshow_type_tabs', :locals => {:current => 'Slideshow_type Details'} %>
-	<%= render "shared/error_messages", :target => @slideshow_type %>
+<%= render :partial => 'admin/shared/slideshow_type_tabs', :locals => {:current => 'Slideshow Details'} %>
+<%= render 'shared/error_messages', :target => @slideshow_type %>
 
-	<%= semantic_form_for([:admin, @slideshow_type]) do |f| %>
-		<%= render :partial => "form", :locals => { :f => f } %>
-		<%= render :partial => 'admin/shared/edit_resource_links' %>
-	<% end %>
+<%= form_for [:admin, @slideshow_type], :html => { :method => :put, :multipart => true } do |f| %>
+  <%= render :partial => 'form', :locals => {:f => f} %>
+  <%= render :partial => 'admin/shared/edit_resource_links' %>
+<% end %>

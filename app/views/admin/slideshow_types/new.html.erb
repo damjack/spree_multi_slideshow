@@ -1,7 +1,49 @@
-<h1><%= t("slideshow_type.new_page") %></h1>
-<%= render "shared/error_messages", :target => @slideshow_type %>
+<%= render 'shared/error_messages', :target => @slideshow_type %>
 
-<%= semantic_form_for([:admin, @slideshow_type], :html => { :enctype => "multipart/form-data" }) do |f| %>
-  <%= render :partial => "form", :locals => { :f => f } %>
-  <%= render :partial => 'admin/shared/new_resource_links' %>
+<%= form_for [:admin, @slideshow_type], :html => { :multipart => true } do |f| %>
+<fieldset data-hook="new_slideshow_type">
+	<div class="clearfix" data-hook="new_product_attrs">
+		<div class="left">
+			<%= f.field_container :category do %>
+				<%= f.label :category, t(:category) %> <span class="required">*</span><br />
+				<%= f.text_field :category, :class => 'fullwidth title'  %>
+				<%= f.error_message_on :category %>
+			<% end %>
+
+			<%= f.field_container :slide_width do %>
+				<%= f.label :slide_width, t(:slide_width) %> <span class="required">*</span><br />
+				<%= f.text_field :slide_width, :class => 'fullwidth title'  %>
+				<%= f.error_message_on :slide_width %>
+			<% end %>
+
+			<%= f.field_container :slide_height do %>
+				<%= f.label :slide_height, t(:slide_height) %> <span class="required">*</span><br />
+				<%= f.text_field :slide_height, :class => 'fullwidth title'  %>
+				<%= f.error_message_on :slide_height %>
+			<% end %>
+		</div>
+		<div class="right">
+			<%= f.field_container :slide_number do %>
+				<%= f.label :slide_number, t(:slide_number) %><br />
+				<%= f.text_field :slide_number, :class => 'fullwidth title'  %>
+				<%= f.error_message_on :slide_number %>
+			<% end %>
+			
+			<%= f.field_container :enable_navigation do %>
+				<%= f.label :enable_navigation, t(:enable_navigation) %><br />
+				<%= f.check_box :enable_navigation, :class => 'fullwidth title'  %>
+				<%= f.error_message_on :enable_navigation %>
+			<% end %>
+			
+			<%= f.field_container :enabled do %>
+				<%= f.label :enabled, t(:enabled) %> <span class="required">*</span><br />
+				<%= f.check_box :enabled, :class => 'fullwidth title'  %>
+				<%= f.error_message_on :enabled %>
+			<% end %>
+		</div>
+	</div>
+
+	<%= render :partial => 'admin/shared/new_resource_links' %>
+
+</fieldset>
 <% end %>

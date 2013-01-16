@@ -9,6 +9,7 @@ it:
         slide_height: Altezza
         slide_number: Numero Slide
         enable_navigation: Tasti navigazione attivi?
+        enable_pagination: Paginazione attiva?
       slide:
         title: Titolo
         url: Link a prodotto o tassonomia o a sito esterno
@@ -21,25 +22,23 @@ it:
         one: Slide
         many: Slides
 
-  slideshow_type:
-    one: Slideshow
-    many: Slideshows
-    enable: Attivo?
-    category: Categoria
-    slide_number: Numero Slide
-    detail: Attributi
-    sidebar: Gestione slideshow e slide.
-    new_page: Nuovo slideshow
-    slide:
-      one: Slide
-      many: Slides
-      new_page: Nuova slide
-      image:
-        one: Immagine
-        many: Immagini
-      thumbnail: Miniatura
-      title: Titolo
-      url: Link a prodotto o tassonomia o a sito esterno
-      editing_page: Modifica slide
-    editing_page: Modifica slideshow
-    confirm_delete: Sei sicuro?
+  new_slideshow_type: "Nuovo Slideshow"
+  slideshow_type: "Slideshow"
+  slideshow_types: "Slideshows"
+  enable: Attivo?
+  category: Categoria
+  slide_number: Numero Slide
+  detail: Attributi
+  sidebar: Gestione slideshow e slide.
+  new_page: Nuovo slideshow
+  slide: "Slide"
+  slides: "Slides"
+  new_slide: Nuova slide
+  image:
+    one: Immagine
+    many: Immagini
+  thumbnail: Miniatura
+  title: Titolo
+  url: Link a prodotto o tassonomia o a sito esterno
+  editing_page: Modifica
+  confirm_delete: Sei sicuro?

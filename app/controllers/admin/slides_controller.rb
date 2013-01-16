@@ -1,5 +1,5 @@
 class Admin::SlidesController < Admin::ResourceController
-  before_filter :load_data, :only => [:index, :new, :show, :edit]
+  before_filter :load_data
 
   def update_positions
     params[:positions].each do |id, index|
@@ -20,5 +20,4 @@ class Admin::SlidesController < Admin::ResourceController
   def location_after_save
     admin_slideshow_type_slides_url(@slideshow_type)
   end
-
 end

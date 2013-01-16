@@ -1,5 +1,5 @@
 class SlideshowType < ActiveRecord::Base
-  belongs_to :slide
+  has_many :slides
   
   attr_accessible :category, :slide_width, :slide_height, :slide_number, :enable_navigation, :enabled
   
@@ -8,9 +8,4 @@ class SlideshowType < ActiveRecord::Base
   validates_numericality_of :slide_number, :only_integer => true
   
   scope :enable, lambda { |category| {:conditions => {:enabled => true, :category => category}} }
-
-  def initialize(*args)
-    super(*args)
-  end
-
 end

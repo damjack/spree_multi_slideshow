@@ -1,12 +1,6 @@
 module SlideshowTypesHelper
 
   def insert_slideshow(params={})
-    @content_for_head_added ||= false
-    if not @content_for_head_added
-      content_for(:head) { stylesheet_link_tag 'spree_multi_slideshow.css' }
-      content_for(:head) { javascript_include_tag 'spree_multi_slideshow.js' }
-      @content_for_head_added = true
-    end
     if slide_images(params)
       navigation = enable_navigation(params)
       content_tag(:div, navigation[:prev] + content_tag(:div, content_tag(:ul, raw(slide_images(params))), :class => "frame") + navigation[:succ], :class => "gallery playing")

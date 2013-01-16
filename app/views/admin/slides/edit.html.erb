@@ -1,12 +1,12 @@
-<%= render :partial => 'admin/shared/slideshow_type_tabs', :locals => {:current => 'Slide Image'} %>
-<h1><%= t("slideshow_type.slide.editing_page") %></h1>
+<%= render :partial => 'admin/shared/slideshow_type_tabs', :locals => {:current => 'Slides'} %>
+
 <%= render 'shared/error_messages', :target => @slide %>
 
-<%= semantic_form_for [:admin, @slideshow_type, @slide], :html => { :multipart => true } do |f| %>
-  <table class="basic-table" data-hook="edit_image">
+<%= form_for [:admin, @slideshow_type, @slide], :html => { :multipart => true } do |f| %>
+  <table class="basic-table" data-hook="edit_slide">
     <tr data-hook="thumbnail">
       <td><%= t(:thumbnail) %>:</td>
-      <td><%= link_to image_tag(@slide.attachment.url(:small)), @slide.image.url(:medium) %></td>
+      <td><%= link_to image_tag(@slide.attachment.url(:small)), @slide.attachment.url(:medium) %></td>
     </tr>
     <%= render :partial => 'form', :locals => { :f => f } %>
   </table>

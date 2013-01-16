@@ -1,14 +1,12 @@
 <% content_for :sidebar do %>
-
-  <h3><%= t("slideshow_type.sidebar") %></h3>
+  <h3><%= t(:sidebar) %></h3>
   <br class="clear" />
-
   <ul class="sidebar slide-menu" data-hook="admin_slide_tabs">
-	<li<%== ' class="active"' if current == 'Slideshow_type Details' %>>
-	  <%= link_to t("slideshow_type.detail"), edit_admin_slideshow_type_url(@slideshow_type) %>
+	<li<%== ' class="active"' if current == 'Slideshow Details' %>>
+	  <%= link_to t(:detail), edit_admin_slideshow_type_url(@slideshow_type) %>
 	</li>
-    <li<%== ' class="active"' if current == 'Slide Image' %>>
-      <%= link_to t("slideshow_type.slide.many"), admin_slideshow_type_slides_path(@slideshow_type) %>
+    <li<%== ' class="active"' if current == 'Slides' %>>
+      <%= link_to t(:slide), admin_slideshow_type_slides_path(@slideshow_type) %>
     </li>
   </ul>
   <br class="clear" />
