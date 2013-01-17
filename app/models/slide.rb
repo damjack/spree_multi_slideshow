@@ -27,23 +27,10 @@ class Slide < ActiveRecord::Base
   validates_attachment_presence :attachment
   validates_attachment_content_type :attachment, :content_type => ['image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/x-png', 'image/pjpeg'], :message => "deve essere JPG, JPEG, PNG o GIF"
   
-  # save the w,h of the original image (from which others can be calculated)
-  # we need to look at the write-queue for images which have not been saved yet
-  after_post_process :find_dimensions
-  
   def initialize(*args)
     super(*args)
     last_slide = Slide.last
     self.position = last_slide ? last_slide.position + 1 : 0
-  end
-  
-  def find_dimensions
-    temporary = attachment.queued_for_write[:original]
-    filename = temporary.path unless temporary.nil?
-    filename = attachment.path if filename.blank?
-    geometry = Paperclip::Geometry.from_file(filename)
-    self.attachment_width  = geometry.width
-    self.attachment_height = geometry.height
   end
 
   # if there are errors from the plugin, then add a more meaningful message

@@ -7,17 +7,16 @@ class Admin::SlidesController < Admin::ResourceController
     end
 
     respond_to do |format|
-      format.html { redirect_to admin_slideshow_type_slides_url(@slideshow_type) }
       format.js  { render :text => 'Ok' }
     end
   end
 
   private
-  def load_data
-    @slideshow_type = SlideshowType.find(params[:slideshow_type_id])
-  end
-
   def location_after_save
     admin_slideshow_type_slides_url(@slideshow_type)
+  end
+  
+  def load_data
+    @slideshow_type = SlideshowType.find(params[:slideshow_type_id])
   end
 end
