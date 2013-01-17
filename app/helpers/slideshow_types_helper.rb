@@ -1,7 +1,7 @@
 module SlideshowTypesHelper
 
   def insert_slideshow(params={})
-    @@slideshow = Spree::SlideshowType.enable.find_by_category(params[:category])
+    @@slideshow = SlideshowType.enable.find_by_category(params[:category])
     if @@slideshow.blank? || (!@@slideshow.blank? && @@slideshow.slides.empty?)
       return ''
     end

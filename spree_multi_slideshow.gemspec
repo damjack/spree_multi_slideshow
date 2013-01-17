@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_multi_slideshow'
-  s.version     = '0.70.72'
+  s.version     = '0.70.73'
   s.summary     = 'Extension to manage multi slideshow for Spree Shop'
   s.required_ruby_version = '>= 1.8.7'
 

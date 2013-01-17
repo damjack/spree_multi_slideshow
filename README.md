@@ -9,7 +9,7 @@ Basic Installation
 
 1. Add the following to your Gemfile
 <pre>
-  gem 'spree_multi_slideshow', '~> 0.70.72'
+  gem 'spree_multi_slideshow', '~> 0.70.73'
 </pre>
 2. Run `bundle install`
 3. To copy and apply migrations run:
