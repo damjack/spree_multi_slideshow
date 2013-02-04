@@ -8,6 +8,6 @@ module Spree
     validates_uniqueness_of :category
     validates_numericality_of :slide_number, :only_integer => true
 
-    scope :enable, where("enabled IS NOT NULL AND enabled = 1")
+    scope :enable, where("enabled = ?", true)
   end
 end
