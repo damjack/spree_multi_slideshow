@@ -50,8 +50,6 @@ module Spree
     Spree::Slide.attachment_definitions[:attachment][:default_url] = Spree::Config[:attachment_default_url]
     Spree::Slide.attachment_definitions[:attachment][:default_style] = Spree::Config[:attachment_default_style]
     
-    attachment_definitions[:attachment] = (attachment_definitions[:attachment] || {}).merge(S3_OPTIONS)
-    
     def initialize(*args)
       super(*args)
       last_slide = Spree::Slide.last

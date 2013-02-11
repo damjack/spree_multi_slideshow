@@ -7,7 +7,8 @@ module Spree
       params[:id] ||= "slides"
       params[:class] ||= "my_slide"
       params[:category] ||= "home"
-      @@slideshow = Spree::SlideshowType.enable.find_by_category(params[:category])
+      logger.info("#{params[:category]}")
+      @@slideshow = Spree::SlideshowType.enable(params[:category]).try(:first)
       if @@slideshow.blank? || (!@@slideshow.blank? && @@slideshow.slides.empty?)
         return ''
       end
