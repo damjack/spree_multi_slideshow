@@ -1,17 +1,17 @@
-<%= render :partial => 'spree/admin/shared/slideshow_type_tabs', :locals => {:current => 'Slide Image'} %>
-<h1><%= t("slideshow_type.slide.editing_page") %></h1>
-<%= render 'spree/shared/error_messages', :target => @slide %>
+<%= render :partial => 'spree/admin/shared/slideshow_tabs', :locals => { :current => 'Slides' } %>
 
-<%= semantic_form_for [:admin, @slideshow_type, @slide], :html => { :multipart => true } do |f| %>
+<%= render :partial => 'spree/shared/error_messages', :locals => { :target => @slide } %>
+
+<%= form_for [:admin, @slideshow, @slide], :html => { :multipart => true } do |f| %>
   <table class="basic-table" data-hook="edit_image">
     <tr data-hook="thumbnail">
       <td><%= t(:thumbnail) %>:</td>
-      <td><%= link_to image_tag(@slide.attachment.url(:small)), @slide.attachment.url(:medium) %></td>
+      <td><%= link_to image_tag(@slide.attachment.url(:thumbnail)), @slide.attachment.url(:medium) %></td>
     </tr>
     <%= render :partial => 'form', :locals => { :f => f } %>
   </table>
   <p class="form-buttons" data-hook="buttons">
     <%= button t(:update) %>
-    <%= t(:or) %> <%= link_to t(:cancel), admin_slideshow_type_slide_url(@slideshow_type), :id => 'cancel_link' %>
+    <%= t(:or) %> <%= link_to t(:cancel), admin_slideshow_slide_url(@slideshow), :id => 'cancel_link' %>
   </p>
 <% end %>

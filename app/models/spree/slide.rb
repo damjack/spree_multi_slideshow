@@ -1,14 +1,14 @@
 module Spree
   class Slide < ActiveRecord::Base
-    belongs_to :slideshow_type
+    belongs_to :slideshow
     
     validate :no_attachment_errors
-    validates_presence_of :slideshow_type_id
+    validates_presence_of :slideshow_id
     validates_attachment_presence :attachment
     validates_attachment_content_type :attachment, :content_type => ['image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/x-png', 'image/pjpeg'], :message => "deve essere JPG, JPEG, PNG o GIF"
     
     attr_accessor :attachment_width, :attachment_height
-    attr_accessible :title, :url, :attachment_width, :attachment_height, :content, :slideshow_type_id, :attachment
+    attr_accessible :title, :url, :attachment_width, :attachment_height, :content, :slideshow_id, :attachment
     
     has_attached_file :attachment,
             :url  => "/spree/slides/:id/:style_:basename.:extension",
@@ -29,8 +29,9 @@ module Spree
                   :slide => "-gravity center",
                   :custom => "-gravity center"
             }
-    
-    #after_post_process :find_dimensions
+    # save the w,h of the original image (from which others can be calculated)
+    # we need to look at the write-queue for images which have not been saved yet
+    after_post_process :find_dimensions
 
     include Spree::Core::S3Support
     supports_s3 :attachment
@@ -43,7 +44,7 @@ module Spree
     
     def initialize(*args)
       super(*args)
-      last_slide = Slide.last
+      last_slide = Spree::Slide.last
       self.position = last_slide ? last_slide.position + 1 : 0
     end
     

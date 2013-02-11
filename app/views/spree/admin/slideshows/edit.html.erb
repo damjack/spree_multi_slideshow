@@ -1,0 +1,7 @@
+<%= render :partial => 'spree/admin/shared/slideshow_tabs', :locals => {:current => 'Slideshow Details'} %>
+<%= render "spree/shared/error_messages", :target => @slideshow %>
+
+<%= form_for [:admin, @slideshow], :method => :put, :html => { :multipart => true } do |f| %>
+	<%= render :partial => "form", :locals => { :f => f } %>
+	<%= render :partial => 'spree/admin/shared/edit_resource_links' %>
+<% end %>

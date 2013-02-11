@@ -1,7 +1,7 @@
 Spree::Core::Engine.routes.draw do
 
   namespace :admin do
-    resources :slideshow_types do
+    resources :slideshows do
       resources :slides do
         collection do
           post :update_positions

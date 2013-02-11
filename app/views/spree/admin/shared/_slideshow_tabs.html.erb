@@ -1,0 +1,17 @@
+<h1><%= t(:editing_slideshow) %> &ldquo;<%= @slideshow.category %>&rdquo;</h1>
+
+<% content_for :sidebar do %>
+	
+	<h3><%= @slideshow.category %></h3>
+	<br class="clear" />
+	
+	<ul class="sidebar slideshow-menu" data-hook="admin_slideshow_tabs">
+		<li<%== ' class="active"' if current == 'Slideshow Details' %>>
+			<%= link_to t(:slideshow_details), edit_admin_slideshow_url(@slideshow) %>
+		</li>
+		<li<%== ' class="active"' if current == 'Slides' %>>
+			<%= link_to t(:slides), admin_slideshow_slides_path(@slideshow) %>
+		</li>
+	</ul>
+	<br class="clear" />
+<% end %>

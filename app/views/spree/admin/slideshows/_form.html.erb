@@ -1,0 +1,30 @@
+<div data-hook="admin_slideshow_form_fields">
+	<div class="clearfix">
+		<div class="left" data-hook="admin_slidewhos_form_left">
+			<%= f.field_container :category do %>
+				<%= f.label :category, t(:category) %> <span class="required">*</span><br />
+				<%= f.text_field :category, :class => 'fullwidth title' %>
+				<%= f.error_message_on :category %>
+			<% end %>
+
+			<%= f.field_container :enable_navigation do %>
+				<%= f.label :enable_navigation, t(:enable_navigation) %><br />
+				<%= f.check_box :enable_navigation %>
+				<%= f.error_message_on :enable_navigation %>
+			<% end %>
+		</div>
+		<div class="right" data-hook="admin_product_form_right">
+			<%= f.field_container :enable_pagination do %>
+				<%= f.label :enable_pagination, t(:enable_pagination) %><br />
+				<%= f.check_box :enable_pagination %>
+				<%= f.error_message_on :enable_pagination %>
+			<% end %>
+
+			<%= f.field_container :enabled do %>
+				<%= f.label :enabled, t(:enabled) %><br />
+				<%= f.check_box :enabled %>
+				<%= f.error_message_on :enabled %>
+			<% end %>
+		</div>
+	</div>
+</div>

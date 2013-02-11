@@ -1,7 +1,0 @@
-<h1><%= t("slideshow_type.new_page") %></h1>
-<%= render "spree/shared/error_messages", :target => @slideshow_type %>
-
-<%= semantic_form_for([:admin, @slideshow_type], :html => { :enctype => "multipart/form-data" }) do |f| %>
-  <%= render :partial => "form", :locals => { :f => f } %>
-  <%= render :partial => 'spree/admin/shared/new_resource_links' %>
-<% end %>

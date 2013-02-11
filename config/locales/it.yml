@@ -1,97 +1,23 @@
----
 it:
   activerecord:
-    errors: &errors
-      format: "%{attribute} %{message}\n"
-      
-      messages: &errors_messages
-        inclusion: "non è incluso nella lista"
-        exclusion: "è riservato"
-        invalid: "non è valido"
-        confirmation: "non coincide con la conferma"
-        record_invalid: "Validazione fallita: %{errors}"
-        taken: è già in uso
-        accepted: "deve essere accettata"
-        empty: "non può essere vuoto"
-        blank: "non può essere lasciato in bianco"
-        too_long:
-          one: "è troppo lungo (il massimo è 1 carattere)"
-          other: "è troppo lungo (il massimo è %{count} caratteri)"
-        too_short:
-          one:  "è troppo corto (il minimo è 1 carattere)"
-          other:  "è troppo corto (il minimo è %{count} caratteri)"
-        wrong_length:
-          one: "è della lunghezza sbagliata (deve essere di 1 carattere)"
-          other: "è della lunghezza sbagliata (deve essere di %{count} caratteri)"
-        not_a_number: "non è un numero"
-        not_an_integer: "non è un intero"
-        greater_than: "deve essere superiore a %{count}"
-        greater_than_or_equal_to: "deve essere superiore o uguale a %{count}"
-        equal_to: "deve essere uguale a %{count}"
-        less_than: "deve essere meno di %{count}"
-        less_than_or_equal_to: "deve essere meno o uguale a %{count}"
-        odd: "deve essere dispari"
-        even: "deve essere pari" 
-      
-      models:
-        slideshow_type:
-          attributes:
-            slideshow_type:
-              category: Categoria
-              enabled: Attivo?
-              slide_width: Larghezza
-              slide_height: Altezza
-              slide_number: Numero Slide
-              enable_navigation: Tasti navigazione attivi?
-        slide:
-          attributes:
-            slide:
-              title: Titolo
-              url: Link a prodotto o tassonomia o a sito esterno
-              image: Immagine
+    models:
+      slideshow:
+        one: Slideshow
+        other: Slideshows
+      slide:
+        one: Slide
+        other: Slides
     attributes:
-      slideshow_type:
+      slideshow:
         category: Categoria
-        enabled: Attivo?
-        url: Link a prodotto o tassonomia o a sito esterno
-        attachment_width: Larghezza immagine
-        attachment_height: Altezza immagine
-        attachment: Immagine
-        position: Posizione (se esistono altri banner con la stessa categoria)
+        updated_at: Aggiornata il
+        created_at: Creata il
+        enabled: Attiva?
+        slide_number: Numero Slide
+        slide_width: Larghezza
+        slide_height: Altezza
+        enable_navigation: Tasti navigazione attivi?
       slide:
         title: Titolo
         url: Link a prodotto o tassonomia o a sito esterno
-        image: Immagine
-    models:
-      slideshow_type:
-        one: Slideshow
-        many: Slideshows
-      slide:
-        one: Slide
-        many: Slides
-  
-
-  slideshow_type:
-    one: Slideshow
-    many: Slideshows
-    enable: Attivo?
-    category: Categoria
-    slide_number: Numero Slide
-    detail: Attributi
-    sidebar: Gestione slideshow e slide.
-    new_page: Nuovo slideshow
-    slide:
-      one: Slide
-      many: Slides
-      new_page: Nuova slide
-      image:
-        one: Immagine
-        many: Immagini
-      thumbnail: Miniatura
-      title: Titolo
-      position: Posizione
-      content: Descrizione
-      url: Link a prodotto o tassonomia o a sito esterno
-      editing_page: Modifica slide
-    editing_page: Modifica slideshow
-    confirm_delete: Sei sicuro?
+        attachment: Immagine
