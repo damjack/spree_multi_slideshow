@@ -7,7 +7,7 @@ module Spree
     validates :slide_number, :slide_width, :slide_height, :presence => true
     validates_uniqueness_of :category
     validates_numericality_of :slide_number, :only_integer => true
-
-    scope :enable, where("enabled = ?", true)
+    
+    scope :enable, lambda { |category| {:conditions => {:enabled => true, :category => category}} }
   end
 end

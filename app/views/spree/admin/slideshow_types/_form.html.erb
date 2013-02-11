@@ -1,6 +1,6 @@
 <div data-hook="admin_slideshow_form_fields">
 	<div class="clearfix">
-		<div class="left" data-hook="admin_product_form_left">
+		<div class="left" data-hook="admin_slideshow_form_left">
 			<%= f.field_container :category do %>
 				<%= f.label :category, t(:category) %> <span class="required">*</span><br />
 				<%= f.text_field :category, :class => 'fullwidth title' %>
@@ -19,7 +19,7 @@
 				<%= f.error_message_on :slide_height %>
 			<% end %>
 		</div>
-		<div class="right" data-hook="admin_product_form_right">
+		<div class="right" data-hook="admin_slideshow_form_right">
 			<%= f.field_container :slide_number do %>
 				<%= f.label :slide_number, t(:slide_number) %> <span class="required">*</span><br />
 				<%= f.text_field :slide_number, :class => 'fullwidth title' %>

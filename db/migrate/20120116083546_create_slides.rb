@@ -7,7 +7,6 @@ class CreateSlides < ActiveRecord::Migration
       t.string   :attachment_content_type, :attachment_file_name
       t.datetime :attachment_updated_at
       t.integer  :attachment_size, :position
-      t.string   :type, :limit => 75
 
       t.references :slideshow_type
       

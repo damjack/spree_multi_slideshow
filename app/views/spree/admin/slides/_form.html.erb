@@ -1,9 +1,18 @@
-<%= f.inputs do %>
-	<%= f.input :title %>
-	<%= f.input :url %>
-	<%= f.input :attachment_width, :input_html => { :value => @slideshow_type.slide_width}, :as => :hidden %>
-	<%= f.input :attachment_height, :input_html => { :value => @slideshow_type.slide_height}, :as => :hidden %>
-	<%= f.cktext_area :content, :input_html => { :value => @slide.content }, :label => t("slideshow_type.slide.content") %>
-	<%= f.input :attachment, :as => :file, :label => I18n.t("slideshow_type.slide.image.one").capitalize, :hint => f.object.attachment.blank? ? f.template.content_tag(:span, "No Image Yet") : f.template.image_tag(f.object.attachment.url(:thumbnail)) %>
-	<%= f.input :slideshow_type_id, :as => :hidden, :value => params[:slideshow_type_id] %>
-<% end %>
+<div data-hook="admin_slide_form_fields">
+	<tr data-hook="file">
+		<td><%= t(:filename) %>:</td>
+		<td><%= f.file_field :attachment %></td>
+	</tr>
+	<tr data-hook="title">
+		<td><%= t(:title) %>:</td>
+		<td><%= f.text_field :title %></td>
+	</tr>
+	<tr data-hook="url">
+		<td><%= t(:url) %>:</td>
+		<td><%= f.text_field :url %></td>
+	</tr>
+	<tr data-hook="content">
+		<td><%= t(:content) %>:</td>
+		<td><%= f.text_area :content %></td>
+	</tr>
+</div>

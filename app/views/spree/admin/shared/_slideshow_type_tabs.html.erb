@@ -9,7 +9,7 @@
     <li<%== ' class="active"' if current == 'Slideshow_type Details' %>>
       <%= link_to t(:slideshow_type_details), edit_admin_slideshow_type_url(@slideshow_type) %>
     </li>
-    <li<%== ' class="active"' if current == 'Slide Images' %>>
+    <li<%== ' class="active"' if current == 'Slides' %>>
       <%= link_to t(:slides), admin_slideshow_type_slides_path(@slideshow_type) %>
     </li>
   </ul>

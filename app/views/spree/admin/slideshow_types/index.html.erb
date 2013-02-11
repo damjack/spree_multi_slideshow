@@ -12,7 +12,7 @@
 <div id="new_slideshow" data-hook></div>
 
 <table class="index" id="listing_products">
-  <tr data-hook="admin_products_index_headers">
+  <tr data-hook="admin_slideshows_index_headers">
     <th><%= t(:category) %></th>
     <th><%= t(:enable) %></th>
     <th><%= t(:slide_number) %></th>
@@ -23,7 +23,7 @@
     <td><%= slideshow_type.category %></td>
 	<td><%= icon('tick') if slideshow_type.enabled %></td>
 	<td><%= slideshow_type.slide_number %></td>
-    <td class="actions" data-hook="admin_products_index_row_actions">
+    <td class="actions" data-hook="admin_slideshows_index_row_actions">
       <%= link_to_edit slideshow_type, :class => 'edit' %>
       &nbsp;
       <%= link_to_delete slideshow_type %>
