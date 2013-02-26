@@ -15,10 +15,9 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree_core'
+  s.add_dependency 'spree_core', '>= 1.1.3'
   
   s.add_dependency 'aws-sdk'
-  s.add_dependency 'paperclip'  
-  s.add_development_dependency 'rspec-rails'
+  s.add_dependency 'paperclip'
 end
 

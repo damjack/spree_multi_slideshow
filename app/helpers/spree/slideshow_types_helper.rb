@@ -34,10 +34,10 @@ module Spree
     end
 
     def slide_images(params, slideshow)
-      params[:style] ||= "custom"
+      params[:style] ||= "medium"
       params[:show_content] ||= false
-      max = slideshow.slide_number || slideshow.slides.count
-      slides = slideshow.slides.limit(max).sort_by { |slide| slide.position }
+      max = slideshow.slides.enable.count
+      slides = slideshow.slides.enable.limit(max).sort_by { |slide| slide.position }
       
       slides.map do |slide|
         content_tag(:div, :class => "slide_list") do

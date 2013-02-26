@@ -2,39 +2,21 @@
 
 <%= form_for [:admin, @slideshow_type], :html => { :multipart => true } do |f| %>
 <fieldset data-hook="new_slideshow_type">
-	<div class="clearfix" data-hook="new_product_attrs">
+	<div class="clearfix" data-hook="new_slideshow_type_attrs">
 		<div class="left">
 			<%= f.field_container :category do %>
 				<%= f.label :category, t(:category) %> <span class="required">*</span><br />
 				<%= f.text_field :category, :class => 'fullwidth title' %>
 				<%= f.error_message_on :category %>
 			<% end %>
-
-			<%= f.field_container :slide_width do %>
-				<%= f.label :slide_width, t(:slide_width) %> <span class="required">*</span><br />
-				<%= f.text_field :slide_width, :class => 'fullwidth title' %>
-				<%= f.error_message_on :slide_width %>
-			<% end %>
-
-			<%= f.field_container :slide_height do %>
-				<%= f.label :slide_height, t(:slide_height) %><br />
-				<%= f.text_field :slide_height, :class => 'fullwidth title' %>
-				<%= f.error_message_on :slide_height %>
-			<% end %>
-		</div>
-		<div class="right">
-			<%= f.field_container :slide_number do %>
-				<%= f.label :slide_number, t(:slide_number) %> <span class="required">*</span><br />
-				<%= f.text_field :slide_number, :class => 'fullwidth title' %>
-				<%= f.error_message_on :slide_number %>
-			<% end %>
-
+			
 			<%= f.field_container :enable_navigation do %>
 				<%= f.label :enable_navigation, t(:enable_navigation) %><br />
 				<%= f.check_box :enable_navigation %>
 				<%= f.error_message_on :enable_navigation %>
 			<% end %>
-
+		</div>
+		<div class="right">
 			<%= f.field_container :enable_pagination do %>
 				<%= f.label :enable_pagination, t(:enable_pagination) %><br />
 				<%= f.check_box :enable_pagination %>

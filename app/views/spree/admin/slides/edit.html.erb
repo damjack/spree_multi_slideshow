@@ -1,5 +1,5 @@
 <%= render :partial => 'spree/admin/shared/slideshow_type_tabs', :locals => {:current => 'Slides'} %>
-<h1><%= t("slideshow_type.slide.editing_page") %></h1>
+
 <%= render 'spree/shared/error_messages', :target => @slide %>
 
 <%= form_for [:admin, @slideshow_type, @slide], :html => { :multipart => true } do |f| %>

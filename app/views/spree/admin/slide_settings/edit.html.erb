@@ -1,0 +1,48 @@
+<%= render :partial => 'spree/admin/shared/configuration_menu' %>
+
+<h1><%= t(:slide_settings) %></h1>
+
+<p><span class="warning"><%= t(:slide_settings_warning) %></span></p>
+
+<%= form_tag admin_slide_settings_path, :method => :put do %>
+
+  <p data-hook="slide_path">
+    <label>
+      <%= label_tag 'preferences[slide_path]', t(:slide_path) %>
+      <%= preference_field_tag 'preferences[slide_path]', Spree::Config[:slide_path], :type => :string %>
+    </label>
+  </p>
+
+  <p data-hook="slide_default_url">
+    <label>
+      <%= label_tag 'preferences[slide_default_url]', t(:slide_default_url) %>
+      <%= preference_field_tag 'preferences[slide_default_url]', Spree::Config[:slide_default_url], :type => :string %>
+    </label>
+  </p>
+
+  <p data-hook="slide_default_style">
+    <label>
+      <%= label_tag 'preferences[slide_default_style]', t(:slide_default_style) %>
+      <%= collection_select 'preferences', 'slide_default_style', @styles, :first, :first, {:selected => Spree::Config[:slide_default_style] } %> 
+    </label>
+  </p>
+
+  <div id="slide_styles" data-hook="slide_styles">
+    <h2><%= t(:slide_styles) %></h2>
+    <ul id="styles_list">
+      <% @styles.each do |style_name, style_value| %>
+        <li>
+          <%= label_tag "slide_styles[#{style_name}]", style_name %>
+          <%= text_field_tag "slide_styles[#{style_name}]", style_value %>
+          <a href="#" alt="Destroy" class="destroy_slide_style">x</a>
+        </li>
+      <% end %>
+    </ul>
+    <p><a href="#" alt="Add Style" class="add_slide_style"><%= t(:add_new_style) %></a></p>
+  </div>
+
+  <p class="form-buttons" data-hook="buttons">
+    <%= button t(:update) %>
+  </p>
+
+<% end %>

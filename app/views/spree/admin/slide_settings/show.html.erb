@@ -1,0 +1,10 @@
+<%= render :partial => 'spree/admin/shared/configuration_menu' %>
+
+<h1><%= t(:slide_settings) %></h1>
+
+<h4><%= t(:slide_path) %>: <%= Spree::Config[:slide_path] %></h4>
+<h4><%= t(:slide_default_url) %>: <%= Spree::Config[:slide_default_url] %></h4>
+<h4><%= t(:slide_default_style) %>: <%= Spree::Config[:slide_default_style] %></h4>
+<h4><%= t(:defined_paperclip_styles) %>: <%= @styles_list %></h4>
+
+<%= link_to_with_icon 'edit', t(:edit), edit_admin_slide_settings_path, :id => 'admin_slide_settings_link' %>

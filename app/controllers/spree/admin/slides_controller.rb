@@ -5,24 +5,22 @@ module Spree
       
       def update_positions
         params[:positions].each do |id, index|
-          Spree::Slide.update_all(['position=?', index], ['id=?', id])
+          Spree::Slide.where(:id => id).update_all(:position => index)
         end
 
         respond_to do |format|
-          format.html { redirect_to admin_slideshow_type_slides_url(@slideshow_type) }
           format.js  { render :text => 'Ok' }
         end
       end
 
       protected
       def location_after_save
-        edit_admin_slideshow_type_url(@slideshow_type)
+        admin_slideshow_type_slides_url(@slideshow_type)
       end
       
       def load_data
         @slideshow_type = Spree::SlideshowType.find(params[:slideshow_type_id])
       end
-
     end
   end
 end

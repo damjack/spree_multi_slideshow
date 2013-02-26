@@ -7,31 +7,13 @@
 				<%= f.error_message_on :category %>
 			<% end %>
 
-			<%= f.field_container :slide_width do %>
-				<%= f.label :slide_width, t(:slide_width) %> <span class="required">*</span><br />
-				<%= f.text_field :slide_width, :class => 'fullwidth title' %>
-				<%= f.error_message_on :slide_width %>
-			<% end %>
-
-			<%= f.field_container :slide_height do %>
-				<%= f.label :slide_height, t(:slide_height) %><br />
-				<%= f.text_field :slide_height, :class => 'fullwidth title' %>
-				<%= f.error_message_on :slide_height %>
-			<% end %>
-		</div>
-		<div class="right" data-hook="admin_slideshow_form_right">
-			<%= f.field_container :slide_number do %>
-				<%= f.label :slide_number, t(:slide_number) %> <span class="required">*</span><br />
-				<%= f.text_field :slide_number, :class => 'fullwidth title' %>
-				<%= f.error_message_on :slide_number %>
-			<% end %>
-
 			<%= f.field_container :enable_navigation do %>
 				<%= f.label :enable_navigation, t(:enable_navigation) %><br />
 				<%= f.check_box :enable_navigation %>
 				<%= f.error_message_on :enable_navigation %>
 			<% end %>
-
+		</div>
+		<div class="right" data-hook="admin_slideshow_form_right">
 			<%= f.field_container :enable_pagination do %>
 				<%= f.label :enable_pagination, t(:enable_pagination) %><br />
 				<%= f.check_box :enable_pagination %>

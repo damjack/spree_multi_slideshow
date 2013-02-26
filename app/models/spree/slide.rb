@@ -4,25 +4,25 @@ module Spree
     validate :no_attachment_errors
     
     attr_accessor :attachment_width, :attachment_height
-    attr_accessible :title, :url, :attachment_width, :attachment_height, :content, :slideshow_type_id, :attachment
+    attr_accessible :title, :url, :attachment_width, :attachment_height, :content, :slideshow_type_id, :attachment, :enable
     
     has_attached_file :attachment,
             :url  => "/spree/slides/:id/:style_:basename.:extension",
             :path => ":rails_root/public/spree/slides/:id/:style_:basename.:extension",
             :styles => lambda {|a|
               {
-                  :thumbnail => "100x33#",
+                  :mini => "100x33#",
                   :small =>  "300x100#",
                   :medium => "600x200#",
-                  :slide =>  "900x300#",
+                  :large =>  "900x300#",
                   :custom => "#{a.instance.attachment_width}x#{a.instance.attachment_height}#"
               }
             },
             :convert_options => {
-                  :thumbnail => "-gravity center",
+                  :mini => "-gravity center",
                   :small => "-gravity center",
                   :medium => "-gravity center",
-                  :slide => "-gravity center",
+                  :large => "-gravity center",
                   :custom => "-gravity center"
             } 
     
@@ -31,6 +31,7 @@ module Spree
     validates_attachment_content_type :attachment, :content_type => ['image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/x-png', 'image/pjpeg'], :message => "deve essere JPG, JPEG, PNG o GIF"
     
     default_scope order("position ASC")
+    scope :enable, {:conditions => {:enabled => true}}
     after_post_process :find_dimensions
     
     # Load user defined paperclip settings
@@ -44,11 +45,11 @@ module Spree
       Spree::Slide.attachment_definitions[:attachment][:s3_host_alias] = Spree::Config[:s3_host_alias] unless Spree::Config[:s3_host_alias].blank?
     end
 
-    Spree::Slide.attachment_definitions[:attachment][:styles] = ActiveSupport::JSON.decode(Spree::Config[:attachment_styles])
-    Spree::Slide.attachment_definitions[:attachment][:path] = Spree::Config[:attachment_path]
-    Spree::Slide.attachment_definitions[:attachment][:url] = Spree::Config[:attachment_url]
-    Spree::Slide.attachment_definitions[:attachment][:default_url] = Spree::Config[:attachment_default_url]
-    Spree::Slide.attachment_definitions[:attachment][:default_style] = Spree::Config[:attachment_default_style]
+    Spree::Slide.attachment_definitions[:attachment][:styles] = ActiveSupport::JSON.decode(Spree::Config[:slide_styles])
+    Spree::Slide.attachment_definitions[:attachment][:path] = Spree::Config[:slide_path]
+    Spree::Slide.attachment_definitions[:attachment][:url] = Spree::Config[:slide_url]
+    Spree::Slide.attachment_definitions[:attachment][:default_url] = Spree::Config[:slide_default_url]
+    Spree::Slide.attachment_definitions[:attachment][:default_style] = Spree::Config[:slide_default_style]
     
     def initialize(*args)
       super(*args)
