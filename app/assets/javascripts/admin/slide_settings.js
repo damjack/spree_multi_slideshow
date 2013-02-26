@@ -19,7 +19,7 @@ $(document).ready(function() {
     html += '<label for="' + hash_name + '_' + index + '_value">';
     html += 'Value</label>';
     html += '<input id="' + hash_name + '_' + index + '_value" name="' + hash_name + '[' + index + '][value]" type="text">';
-    html += '<a href="#" alt="Destroy" class="destroy_style">&nbsp;x</a>';
+    html += '<a href="#" alt="Destroy" class="destroy_slide_style">&nbsp;x</a>';
     html += '</li>';
 
     index += 1;

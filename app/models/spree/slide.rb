@@ -31,7 +31,7 @@ module Spree
     validates_attachment_content_type :attachment, :content_type => ['image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/x-png', 'image/pjpeg'], :message => "deve essere JPG, JPEG, PNG o GIF"
     
     default_scope order("position ASC")
-    scope :enable, {:conditions => {:enabled => true}}
+    scope :enable, {:conditions => {:enable => true}}
     after_post_process :find_dimensions
     
     # Load user defined paperclip settings
