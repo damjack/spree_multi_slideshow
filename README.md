@@ -33,6 +33,15 @@ displays slides for which the category column, dafault is "home"
 <pre>
 	<%= insert_slideshow(:style => "small") %>
 </pre>
+Other options are:
+<pre>
+	:speed => 500
+	:mode => "fade | horizontal | vertical"
+	:auto_start => "true | false"
+	:infinite_loop => "true | false"
+	:hide_on_end => "true | false"
+</pre>
+
 style layout for slideshow: [small, medium, slide, default => custom]
 
 Copyright (c) 2012 [Damiano Giacomello], released under the New BSD License

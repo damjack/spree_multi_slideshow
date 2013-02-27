@@ -12,10 +12,12 @@ module SlideshowTypesHelper
     $(function() {
       $('.bxslider').bxSlider({
           adaptiveHeight: true,
+          speed: #{params[:speed] || 500},
+          mode: '#{params[:mode] || "horizontal"}',
           controls: #{@@slideshow.enable_navigation},
-          autoStart: false,
-          infiniteLoop: false,
-          hideControlOnEnd: true
+          auto: #{params[:auto_start] || "false"},
+          infiniteLoop: #{params[:infinite_loop] || "false"},
+          hideControlOnEnd: #{params[:hide_on_end] || "true"}
         });
       });
     </script>"
