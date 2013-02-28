@@ -20,14 +20,14 @@
       <td class="actions">
         <%= link_to_with_icon 'edit', t(:edit), edit_admin_slideshow_type_slide_url(@slideshow_type, slide), :class => 'edit' %>
         &nbsp;
-        <%= link_to_delete image, { :url => admin_slideshow_type_slide_url(@slideshow_type, slide) }%>
+        <%= link_to_delete slide, { :url => admin_slideshow_type_slide_url(@slideshow_type, slide) }%>
       </td>
     </tr>
   <% end %>
   </tbody>
 </table>
 
-<div id="images" data-hook></div>
+<div id="slides" data-hook></div>
 <br />
 <p data-hook="links">
     <%= link_to icon('add') + ' ' + t(:new_slide), new_admin_slideshow_type_slide_url(@slideshow_type), :id => 'new_slide_link' %>

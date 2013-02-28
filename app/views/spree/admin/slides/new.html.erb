@@ -1,4 +1,4 @@
-<h4><%= t("slideshow_type.slide.new_page") %></h4>
+<h4><%= t(:new_slide) %></h4>
 <%= form_for [:admin, @slideshow_type, @slide], :html => { :multipart => true } do |f| %>
   <table class="basic-table" data-hook="new_slide">
     <%= render :partial => 'form', :locals => { :f => f } %>
