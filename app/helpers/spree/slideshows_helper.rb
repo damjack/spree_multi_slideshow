@@ -6,7 +6,7 @@ module Spree
       params[:id] ||= "slideshow"
       params[:class] ||= "first_slideshow"
       params[:category] ||= "home"
-      params[:auto_play] ||= false
+      params[:auto] ||= false
       params[:next_text] ||= '>>'
       params[:prev_text] ||= '<<'
       params[:next_selector] ||= 'bx-next'
@@ -22,7 +22,9 @@ module Spree
       res << "<script type='text/javascript'>
         $(function() {
           $('##{params[:id]}').bxSlider({
-            auto: #{params[:auto_play]},
+            auto: #{params[:auto]},
+            autoStart: #{@@slideshow.auto_start},
+            mode: #{@@slideshow.mode},
             controls: #{@@slideshow.enable_navigation},
             nextText: '#{params[:next_text]}',
             nextSelector: '#{params[:next_selector]}',
@@ -30,6 +32,8 @@ module Spree
             prevSelector: '#{params[:prev_selector]}',
             speed: 2000,
             pager: #{@@slideshow.enable_pagination},
+            infiniteLoop: #{@@slideshow.infinite_loop},
+            hideControlOnEnd: #{@@slideshow.hide_control_on_end},
             autoHover: true,
             pagerSelector: '#{params[:pagination_class]}'
           });
@@ -40,10 +44,10 @@ module Spree
     end
 
     def slide_images(params, slideshow)
-      params[:style] ||= "custom"
+      params[:style] ||= "medium"
       params[:show_content] ||= false
-      max = slideshow.slides.count
-      slides = slideshow.slides.limit(max).sort_by { |slide| slide.position }
+      max = slideshow.slides.enable.count
+      slides = slideshow.slides.enable.limit(max).sort_by { |slide| slide.position }
       
       slides.map do |slide|
         content_tag(:div, :class => "slide_list") do
@@ -51,7 +55,7 @@ module Spree
           
           divs << link_to(image_tag(slide.attachment.url(params[:style].to_sym)), (slide.url.blank? ? "javascript: void(0)" : slide.url), { :title => slide.title })
           if params[:show_content]
-            divs << content_tag(:div, content_tag(:strong, raw(slide.title)) + content_tag(:p, raw(slide.content)), :class => "caption")
+            divs << content_tag(:div, content_tag(:strong, raw(slide.title)) + content_tag(:p, raw(slide.presentation)), :class => "caption")
           end
           
           divs.join.html_safe

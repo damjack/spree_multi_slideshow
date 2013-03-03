@@ -1,35 +1,46 @@
 <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @slideshow } %>
 
 <%= form_for [:admin, @slideshow], :html => { :multipart => true } do |f| %>
-<fieldset data-hook="new_slideshow">
-	<div class="clearfix" data-hook="new_slideshow_attrs">
-		<div class="left">
-			<%= f.field_container :category do %>
-				<%= f.label :category, t(:category) %> <span class="required">*</span><br />
-				<%= f.text_field :category, :class => 'fullwidth title' %>
-				<%= f.error_message_on :category %>
-			<% end %>
-			
-			<%= f.field_container :enable_navigation do %>
-				<%= f.label :enable_navigation, t(:enable_navigation) %><br />
-				<%= f.check_box :enable_navigation %>
-				<%= f.error_message_on :enable_navigation %>
-			<% end %>
-		</div>
-		<div class="right">
-			<%= f.field_container :enable_pagination do %>
-				<%= f.label :enable_pagination, t(:enable_pagination) %><br />
-				<%= f.check_box :enable_pagination %>
-				<%= f.error_message_on :enable_pagination %>
-			<% end %>
 
-			<%= f.field_container :enabled do %>
-				<%= f.label :enabled, t(:enabled) %><br />
-				<%= f.check_box :enabled %>
-				<%= f.error_message_on :enabled %>
-			<% end %>
-		</div>
-	</div>
-	<%= render :partial => 'spree/admin/shared/new_resource_links' %>
+<fieldset data-hook="new_slideshow">
+
+  <legend align="center"><%= t(:new_slideshow) %></legend>
+
+  <%= f.field_container :category do %>
+    <%= f.label :category, t(:category) %> <span class="required">*</span><br />
+    <%= f.text_field :category, :class => 'fullwidth title' %>
+    <%= f.error_message_on :category %>
+  <% end %>
+
+  <div data-hook="new_slideshow_attrs" class="row">
+
+    <div class="four columns">
+      <%= f.field_container :enable_navigation do %>
+        <%= f.label :enable_navigation, t(:enable_navigation) %><br />
+        <%= f.check_box :enable_navigation %>
+		<%= f.error_message_on :enable_navigation %>
+      <% end %>
+    </div>
+      
+    <div class="four columns">
+      <%= f.field_container :enable_pagination do %>
+        <%= f.label :enable_pagination, t(:enable_pagination) %><br />
+        <%= f.check_box :enable_pagination %>
+        <%= f.error_message_on :enable_pagination %>
+      <% end %>
+    </div>
+
+    <div class="omega four columns">
+      <%= f.field_container :enabled do %>
+        <%= f.label :enabled, t(:enabled) %><br />
+        <%= f.check_box :enabled %>
+		<%= f.error_message_on :enabled %>
+      <% end %>
+    </div>
+    
+  </div>
+
+  <%= render :partial => 'spree/admin/shared/new_resource_links' %>
+  
 </fieldset>
 <% end %>

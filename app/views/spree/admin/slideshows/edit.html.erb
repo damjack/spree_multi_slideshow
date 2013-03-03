@@ -1,7 +1,16 @@
-<%= render :partial => 'spree/admin/shared/slideshow_tabs', :locals => {:current => 'Slideshow Details'} %>
-<%= render "spree/shared/error_messages", :target => @slideshow %>
+<% content_for :page_actions do %>
+  <li><%= button_link_to t(:back_to_slideshows_list), session[:return_to] || admin_slideshows_url, :icon => 'icon-arrow-left' %></li>
+  <li id="new_slideshow_link">
+    <%= button_link_to t(:new_slideshow), new_object_url, { :remote => true, :icon => 'icon-plus', :id => 'admin_new_slideshow' } %>
+  </li>
+<% end %>
+
+<%= render :partial => 'spree/admin/shared/slideshow_tabs', :locals => { :current => 'Slideshow Details' } %>
+<%= render :partial => 'spree/shared/error_messages', :locals => { :target => @slideshow } %>
 
 <%= form_for [:admin, @slideshow], :method => :put, :html => { :multipart => true } do |f| %>
-	<%= render :partial => "form", :locals => { :f => f } %>
-	<%= render :partial => 'spree/admin/shared/edit_resource_links' %>
+  <fieldset class="no-border-top">
+    <%= render :partial => 'form', :locals => { :f => f } %>
+    <%= render :partial => 'spree/admin/shared/edit_resource_links' %>
+  </fieldset>
 <% end %>

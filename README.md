@@ -22,21 +22,24 @@ Example
 
 1. add slideshow helper method in your view:
 <pre>
-	<%= insert_slideshow %>
+	<%= insert_slideshow() %>
 </pre>
 add slides for the slideshow in the admin section
 2. Additional options:
 <pre>
-	<%= insert_slideshow(:category => "my_category") %>
+	{
+		:id => "slideshow"
+		:class => "first_slideshow"
+		:category => "my_category"
+		:style => "custom"
+		:auto => true|false
+		:next_text => ">>"
+		:prev_text => "<<"
+		:next_selector => "bx-next"
+		:prev_selector => "bx-prev"
+		:pagination_class => "pagination"
+		:show_content => true|false
+	}
 </pre>
-displays slides for which the category column, dafault is "home"
-<pre>
-	<%= insert_slideshow(:style => "small") %>
-</pre>
-style layout for slideshow: [small, medium, slide, default => custom]
-<pre>
-	<%= insert_slideshow(:enable_content => true/false, :style => "custom", :category => "custom") %>
-</pre>
-added a content_tag for display title and description of slide
 
 Copyright (c) 2012 [Damiano Giacomello], released under the New BSD License

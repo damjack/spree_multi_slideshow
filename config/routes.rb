@@ -8,6 +8,8 @@ Spree::Core::Engine.routes.draw do
         end
       end
     end
+    
+    resource :slide_settings
   end
 
 end
