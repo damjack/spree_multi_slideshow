@@ -12,25 +12,40 @@
   </div>
 <% end %>
 
+<%= render :partial => 'spree/admin/shared/slideshow_sub_menu' %>
+
 <div id="new_slideshow" data-hook></div>
 
-<table class="index" id="listing_slideshows">
-  <tr data-hook="admin_slideshows_index_headers">
-    <th><%= t(:category) %></th>
-    <th><%= t(:enable) %></th>
-    <th><%= t(:slide_number) %></th>
-    <th data-hook="admin_slideshows_index_header_actions"></th>
-  </tr>
-<% @slideshows.each do |slideshow| %>
-  <tr id="<%= spree_dom_id slideshow %>" data-hook="admin_slideshows_index_rows">
-    <td><%= slideshow.category %></td>
-    <td><%= icon('tick') if slideshow.enabled %></td>
-    <td><%= slideshow.slide_number %></td>
-    <td class="actions" data-hook="admin_slideshows_index_row_actions">
-      <%= link_to_edit slideshow, :class => 'edit' %>
-      &nbsp;
-      <%= link_to_delete slideshow %>
-    </td>
-  </tr>
+<% if @collection.any? %>
+	<table class="index" id="listing_slideshows">
+		<colgroup>
+		<col style="width: 55%;">
+		<col style="width: 10%;">
+		<col style="width: 17%;">
+		</colgroup>
+		<thead>
+			<tr data-hook="admin_slideshows_index_headers">
+				<th><%= t(:category) %></th>
+				<th><%= t(:enable) %></th>
+				<th data-hook="admin_slideshows_index_header_actions" class="actions"></th>
+			</tr>
+		</thead>
+		<tbody>
+		<% @slideshows.each do |slideshow| %>
+		<tr id="<%= spree_dom_id slideshow %>" data-hook="admin_slideshows_index_rows" class="<%= cycle('odd', 'even') %>">
+			<td><%= slideshow.category %></td>
+			<td align="center"><%= icon('icon-check icon-large') if slideshow.enabled %></td>
+			<td class="actions" data-hook="admin_slideshows_index_row_actions">
+				<%= link_to_edit slideshow, :no_text => true, :class => 'edit' %>
+				&nbsp;
+				<%= link_to_delete slideshow, :no_text => true %>
+			</td>
+		</tr>
+		<% end %>
+		</tbody>
+	</table>
+<% else %>
+	<div class="no-objects-found">
+		<%= t(:no_results) %>
+	</div>
 <% end %>
-</table>

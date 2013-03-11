@@ -17,7 +17,7 @@ module Spree
       end
       
       def set_slideshow
-        @slide.slideshow_id = params[:slide][:slideshow_id]
+        @slide.slideshow_id = params[:slideshow_id]
       end
       
       def destroy_before

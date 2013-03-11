@@ -1,4 +1,5 @@
 it:
+  images_only: "deve essere JPG, JPEG, PNG o GIF"
   activerecord:
     models:
       slideshow:
@@ -17,6 +18,10 @@ it:
         slide_width: Larghezza
         slide_height: Altezza
         enable_navigation: Tasti navigazione attivi?
+        mode: "Tipo transazione"
+        auto_start: "Start automatico"
+        infinite_loop: "Slide infinito"
+        hide_control_on_end: "Nascondi controller al termine"
       slide:
         title: Titolo
         url: Link a prodotto o tassonomia o a sito esterno

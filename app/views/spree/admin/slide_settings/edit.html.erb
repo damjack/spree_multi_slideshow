@@ -4,6 +4,8 @@
   <%= t(:slide_settings) %>
 <% end %>
 
+<%= render :partial => 'spree/admin/shared/slideshow_sub_menu' %>
+
 <%= form_tag admin_slide_settings_path, :method => :put do %>
   
   <fieldset class="no-border-top">

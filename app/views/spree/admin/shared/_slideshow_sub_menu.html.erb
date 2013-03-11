@@ -1,0 +1,6 @@
+<% content_for :sub_menu do %>
+  <ul id="sub_nav" data-hook="admin_slideshow_sub_tabs" class="inline-menu">
+    <%= tab :slideshows, :match_path => '/slideshows' %>
+    <%= tab :slide_settings, edit_admin_slide_settings_url %>
+  </ul>
+<% end %>

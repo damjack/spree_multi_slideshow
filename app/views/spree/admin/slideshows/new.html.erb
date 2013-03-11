@@ -30,13 +30,47 @@
       <% end %>
     </div>
 
-    <div class="omega four columns">
+    <div class="four columns">
       <%= f.field_container :enabled do %>
         <%= f.label :enabled, t(:enabled) %><br />
         <%= f.check_box :enabled %>
 		<%= f.error_message_on :enabled %>
       <% end %>
     </div>
+	
+	<div class="omega four columns">
+		<%= f.field_container :auto_start do %>
+			<%= f.label :auto_start, t(:auto_start) %><br />
+			<%= f.check_box :auto_start %>
+			<%= f.error_message_on :auto_start %>
+		<% end %>
+	</div>
+	
+	<div class="ten columns">
+		<div class="three columns">
+			<%= f.field_container :infinite_loop do %>
+				<%= f.label :infinite_loop, t(:infinite_loop) %><br />
+				<%= f.check_box :infinite_loop %>
+				<%= f.error_message_on :infinite_loop %>
+			<% end %>
+		</div>
+		
+		<div class="three columns">
+			<%= f.field_container :mode do %>
+				<%= f.label :mode, t(:mode) %><br />
+				<%= f.select(:mode, @slideshow.mode_enum, { :include_blank => 'None' }, { :class => 'select2' }) %>
+				<%= f.error_message_on :mode %>
+			<% end %>
+		</div>
+		
+		<div class="omega three columns">
+			<%= f.field_container :hide_control_on_end do %>
+				<%= f.label :hide_control_on_end, t(:hide_control_on_end) %><br />
+				<%= f.check_box :hide_control_on_end %>
+				<%= f.error_message_on :hide_control_on_end %>
+			<% end %>
+		</div>
+	</div>
     
   </div>
 

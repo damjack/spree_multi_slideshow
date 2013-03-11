@@ -11,8 +11,7 @@
 			<%= f.check_box :enable_navigation %>
 			<%= f.error_message_on :enable_navigation %>
 		<% end %>
-	</div>
-	<div class="right four columns omega" data-hook="admin_slideshow_form_right">
+		
 		<%= f.field_container :enable_pagination do %>
 			<%= f.label :enable_pagination, t(:enable_pagination) %><br />
 			<%= f.check_box :enable_pagination %>
@@ -23,6 +22,31 @@
 			<%= f.label :enabled, t(:enabled) %><br />
 			<%= f.check_box :enabled %>
 			<%= f.error_message_on :enabled %>
+		<% end %>
+	</div>
+	<div class="right four columns omega" data-hook="admin_slideshow_form_right">
+		<%= f.field_container :mode do %>
+			<%= f.label :mode, t(:mode) %><br />
+			<%= f.select(:mode, @slideshow.mode_enum, { :include_blank => 'None' }, { :class => 'select2' }) %>
+			<%= f.error_message_on :mode %>
+		<% end %>
+
+		<%= f.field_container :auto_start do %>
+			<%= f.label :auto_start, t(:auto_start) %><br />
+			<%= f.check_box :auto_start %>
+			<%= f.error_message_on :auto_start %>
+		<% end %>
+		
+		<%= f.field_container :infinite_loop do %>
+			<%= f.label :infinite_loop, t(:infinite_loop) %><br />
+			<%= f.check_box :infinite_loop %>
+			<%= f.error_message_on :infinite_loop %>
+		<% end %>
+
+		<%= f.field_container :hide_control_on_end do %>
+			<%= f.label :hide_control_on_end, t(:hide_control_on_end) %><br />
+			<%= f.check_box :hide_control_on_end %>
+			<%= f.error_message_on :hide_control_on_end %>
 		<% end %>
 	</div>
 

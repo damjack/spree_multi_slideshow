@@ -1,30 +1,29 @@
 <div data-hook="admin_slide_form_fields">
-  <div class="four columns alpha">
-    <div data-hook="file" class="field">
-      <%= f.label t(:filename) %><br>
-      <%= f.file_field :attachment %>
-    </div>
-	<div data-hook="enabled" class="field">
-      <%= f.field_container :enabled, :class => ['checkbox'] do %>
-         <label>
-           <%= f.check_box :enabled %>
-           <%= t(:enabled) %>
-         </label>
-      <% end %>
-    </div>
-	<div data-hook="url" class="field">
-      <%= f.label t(:url) %><br>
-      <%= f.text_field :url, :class => 'fullwidth' %>
-    </div>
-    <div data-hook="title" class="field">
-      <%= f.label t(:title) %><br>
-      <%= f.text_field :title, :class => 'fullwidth' %>
-    </div>
-  </div>
-  <div data-hook="presentation" class="field omega five columns">
-    <%= f.label t(:presentation) %><br>
-    <%= f.text_area :presentation, :rows => 4, :class => 'fullwidth' %>
-  </div>
+	<div class="eight columns alpha">
+		<div data-hook="file" class="field">
+			<%= f.label t(:filename) %><br>
+			<%= f.file_field :attachment %>
+		</div>
+		<div data-hook="enabled" class="field">
+			<label>
+				<%= f.check_box :enabled %>
+				<%= t(:enabled) %>
+			</label>
+		</div>
+	</div>
+	<div class="omega eight columns">
+		<div data-hook="title" class="field">
+			<%= f.label t(:title) %><br>
+			<%= f.text_field :title, :class => 'fullwidth' %>
+		</div>
+		<div data-hook="url" class="field">
+			<%= f.label t(:url) %><br>
+			<%= f.text_field :url, :class => 'fullwidth' %>
+		</div>
+		<div data-hook="presentation" class="field">
+			<%= f.label t(:presentation) %><br>
+			<%= f.text_area :presentation, :rows => 4, :class => 'fullwidth' %>
+		</div>
+	</div>
 </div>
-
 <div class="clear"></div>

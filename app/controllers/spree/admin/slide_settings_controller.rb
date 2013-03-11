@@ -1,6 +1,11 @@
 module Spree
   module Admin
     class SlideSettingsController < Spree::Admin::BaseController
+      
+      def show
+        redirect_to( :action => :edit )
+      end
+      
       def edit
         @styles = ActiveSupport::JSON.decode(Spree::Config[:attachment_styles])
       end
@@ -14,7 +19,7 @@ module Spree
         respond_to do |format|
           format.html {
             flash[:success] = t(:slide_settings_updated)
-            redirect_to edit_admin_image_settings_path
+            redirect_to edit_admin_slide_settings_path
           }
         end
       end

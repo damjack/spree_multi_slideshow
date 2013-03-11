@@ -7,15 +7,15 @@ module Spree
     validate :no_attachment_errors
     validates_presence_of :slideshow_id
     validates_attachment_presence :attachment
-    validates_attachment_content_type :attachment, :content_type => ['image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/x-png', 'image/pjpeg'], :message => "deve essere JPG, JPEG, PNG o GIF"
+    validates_attachment_content_type :attachment, :content_type => ['image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/x-png', 'image/pjpeg'], :message => I18n.t(:images_only)
     
     attr_accessor :attachment_width, :attachment_height
-    attr_accessible :title, :url, :attachment_width, :attachment_height, :presentation, :slideshow_id, :attachment
+    attr_accessible :title, :url, :enabled, :presentation, :slideshow_id, :attachment
     
     has_attached_file :attachment,
             :url  => "/spree/slides/:id/:style_:basename.:extension",
             :path => ":rails_root/public/spree/slides/:id/:style_:basename.:extension",
-            :styles => ->(a) {{
+            :styles => lambda {|a|{
                   :mini => "60x60#",
                   :small =>  "300x100#",
                   :medium => "600x200#",
@@ -26,6 +26,8 @@ module Spree
     # save the w,h of the original image (from which others can be calculated)
     # we need to look at the write-queue for images which have not been saved yet
     after_post_process :find_dimensions
+    
+    default_scope order("position ASC")
     scope :enable, {:conditions => {:enabled => true}}
 
     include Spree::Core::S3Support
