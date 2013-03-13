@@ -26,14 +26,14 @@
 		<thead>
 			<tr data-hook="admin_slideshows_index_headers">
 				<th><%= t(:category) %></th>
-				<th><%= t(:enable) %></th>
+				<th><%= t(:enabled) %></th>
 				<th data-hook="admin_slideshows_index_header_actions" class="actions"></th>
 			</tr>
 		</thead>
 		<tbody>
 		<% @slideshows.each do |slideshow| %>
 		<tr id="<%= spree_dom_id slideshow %>" data-hook="admin_slideshows_index_rows" class="<%= cycle('odd', 'even') %>">
-			<td><%= slideshow.category %></td>
+			<td><%= slideshow.category %> (<%= slideshow.slides.count %> <%= t(:slides) %>)</td>
 			<td align="center"><%= icon('icon-check icon-large') if slideshow.enabled %></td>
 			<td class="actions" data-hook="admin_slideshows_index_row_actions">
 				<%= link_to_edit slideshow, :no_text => true, :class => 'edit' %>

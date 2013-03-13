@@ -7,7 +7,7 @@ module Spree
       end
       
       def edit
-        @styles = ActiveSupport::JSON.decode(Spree::Config[:attachment_styles])
+        @styles = ActiveSupport::JSON.decode(Spree::Config[:slide_styles])
       end
 
       def update

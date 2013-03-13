@@ -9,7 +9,7 @@ Basic Installation
 
 1. Add the following to your Gemfile
 <pre>
-  gem 'spree_multi_slideshow', '~> 1.2.2'
+  gem 'spree_multi_slideshow', '~> 1.3.0'
 </pre>
 2. Run `bundle install`
 3. To copy and apply migrations run:
@@ -22,22 +22,21 @@ Example
 
 1. add slideshow helper method in your view:
 <pre>
-	<%= insert_slideshow() %>
+	<%= insert_slideshow(:category => "my_category") %>
 </pre>
 add slides for the slideshow in the admin section
 2. Additional options:
 <pre>
 	{
-		:id => "slideshow"
-		:class => "first_slideshow"
-		:category => "my_category"
-		:style => "custom"
+		:id => "my_id"
+		:class => "my_class"
+		:style => "my_style"
 		:auto => true|false
 		:next_text => ">>"
 		:prev_text => "<<"
 		:next_selector => "bx-next"
 		:prev_selector => "bx-prev"
-		:pagination_class => "pagination"
+		:pagination_class => "my_pagination"
 		:show_content => true|false
 	}
 </pre>

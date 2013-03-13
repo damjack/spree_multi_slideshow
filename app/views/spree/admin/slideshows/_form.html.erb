@@ -27,7 +27,7 @@
 	<div class="right four columns omega" data-hook="admin_slideshow_form_right">
 		<%= f.field_container :mode do %>
 			<%= f.label :mode, t(:mode) %><br />
-			<%= f.select(:mode, @slideshow.mode_enum, { :include_blank => 'None' }, { :class => 'select2' }) %>
+			<%= f.select(:mode, @slideshow.mode_enum, { :include_blank => false }, { :class => 'select2' }) %>
 			<%= f.error_message_on :mode %>
 		<% end %>
 

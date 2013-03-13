@@ -11,20 +11,21 @@ module Spree
       params[:prev_text] ||= '<<'
       params[:next_selector] ||= 'bx-next'
       params[:prev_selector] ||= 'bx-prev'
-      @@slideshow = Spree::Slideshow.enable.find_by_category(params[:category])
-      if @@slideshow.blank? || (!@@slideshow.blank? && @@slideshow.slides.empty?)
+      @@slideshow = Spree::Slideshow.enable(params[:category]).try(:first)
+      if @@slideshow.blank? || (!@@slideshow.blank? && @@slideshow.slides.enable.empty?)
         return ''
       end
-      params[:pagination_class] ||= "pagination"
+      params[:pagination_class] ||= ""
       res = []
       
-      res << content_tag(:div, content_tag(:div, slide_images(params, @@slideshow), :class => "slides_container"), :id => params[:id], :class => params[:class])
+      res << content_tag(:ul, slide_images(params, @@slideshow), :class => "bxslider #{params[:class]}", :id => params[:id])
       res << "<script type='text/javascript'>
         $(function() {
           $('##{params[:id]}').bxSlider({
             auto: #{params[:auto]},
+            adaptiveHeight: true,
             autoStart: #{@@slideshow.auto_start},
-            mode: #{@@slideshow.mode},
+            mode: '#{@@slideshow.mode}',
             controls: #{@@slideshow.enable_navigation},
             nextText: '#{params[:next_text]}',
             nextSelector: '#{params[:next_selector]}',
@@ -35,6 +36,7 @@ module Spree
             infiniteLoop: #{@@slideshow.infinite_loop},
             hideControlOnEnd: #{@@slideshow.hide_control_on_end},
             autoHover: true,
+            useCSS: true,
             pagerSelector: '#{params[:pagination_class]}'
           });
         });
@@ -46,11 +48,10 @@ module Spree
     def slide_images(params, slideshow)
       params[:style] ||= "medium"
       params[:show_content] ||= false
-      max = slideshow.slides.enable.count
-      slides = slideshow.slides.enable.limit(max).sort_by { |slide| slide.position }
+      slides = slideshow.slides.enable.sort_by { |slide| slide.position }
       
       slides.map do |slide|
-        content_tag(:div, :class => "slide_list") do
+        content_tag(:li, :class => "slides") do
           divs = []
           
           divs << link_to(image_tag(slide.attachment.url(params[:style].to_sym)), (slide.url.blank? ? "javascript: void(0)" : slide.url), { :title => slide.title })

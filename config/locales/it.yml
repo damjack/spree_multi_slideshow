@@ -1,5 +1,40 @@
 it:
   images_only: "deve essere JPG, JPEG, PNG o GIF"
+  slideshow_details: "Dettagli Slideshow"
+  editing_slideshow: Modifica Slideshow
+  slide_settings: Impostazioni Slide
+  add_new_slide_style: "Aggiungi nuovo stile delle Slide"
+  horizontal: "Orizzontale"
+  fade: "Dissolvenza"
+  vertical: "Verticale"
+  slide_settings_warning: "Sarà necessario rigenerare le miniature dopo aver aggiornato gli stili di paperclip delle Slide, col comando rake paperclip:refresh:thumbnails CLASS=Spree::Slide"
+  slide_settings_description: "Descrizione Impostazioni Slide"
+  slide_settings_updated: "Impostazioni Slide aggiornate con successo."
+  slide_default_style: "Stile di Default dell'allegato delle Slide"
+  slide_default_url: "URL di Default dell'allegato delle Slide"
+  slide_path: "Percorso dell'allegato delle Slide"
+  slide_styles: "Stili di Paperclip delle Slide"
+  slide_url: "URL dell'allegato delle Slide"
+  back_to_slides_list: "Torna all'elenco Slides"
+  back_to_slideshows_list: "Torna all'elenco Slideshows"
+  new_slideshow: "Nuova Slideshow"
+  new_slide: "Nuova Slide"
+  listing_slideshows: "Elenco Slideshows"
+  listing_slides: "Elenco Slides"
+  no_slides_found: "Nessuna Slide Trovata"
+  enabled: Attiva?
+  slide_number: Numero Slide
+  slide_width: Larghezza
+  slide_height: Altezza
+  enable_navigation: Tasti navigazione attivi?
+  enable_pagination: Navigazione attiva?
+  mode: "Tipo transazione"
+  auto_start: "Start automatico"
+  infinite_loop: "Slide infinito"
+  hide_control_on_end: "Nascondi controller al termine"
+  title: Titolo
+  url: Link url
+  attachment: Immagine
   activerecord:
     models:
       slideshow:

@@ -12,9 +12,9 @@ $(document).ready(function() {
 
   // Handle adding new styles
   var styles_hash_index = 1;
-  $('.add_new_style').live("click", function(e) {
+  $('.add_new_slide_style').live("click", function(e) {
     e.preventDefault();
-    $('#new-styles').append(generate_html_for_hash("new_slide_styles", styles_hash_index));
+    $('#new-slide-styles').append(generate_html_for_hash("new_slide_styles", styles_hash_index));
   });
 
   // Generates html for new paperclip styles form fields

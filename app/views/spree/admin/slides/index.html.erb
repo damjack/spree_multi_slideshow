@@ -24,6 +24,7 @@
       <tr data-hook="slides_header">
         <th colspan="2"><%= t(:thumbnail) %></th>
         <th><%= t(:alt_text) %></th>
+		<th><%= t(:enabled) %></th>
         <th class="actions"></th>
       </tr>
     </thead>
@@ -38,6 +39,7 @@
             <%= link_to image_tag(slide.attachment.url(:mini)), slide.attachment.url(:large) %>
           </td>
           <td><%= slide.presentation %></td>
+		  <td align="center"><%= icon('icon-check icon-large') if slide.enabled %></td>
           <td class="actions">
             <%= link_to_with_icon 'icon-edit', t(:edit), edit_admin_slideshow_slide_url(@slideshow, slide), :no_text => true, :data => {:action => 'edit'} %>
             <%= link_to_delete slide, { :url => admin_slideshow_slide_url(@slideshow, slide), :no_text => true } %>
