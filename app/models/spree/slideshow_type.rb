@@ -1,6 +1,6 @@
 module Spree
   class SlideshowType < ActiveRecord::Base
-    has_many :slides
+    has_many :slides, :dependent => :destroy
     
     attr_accessible :category, :enable_navigation, :enabled, :enable_pagination
     
