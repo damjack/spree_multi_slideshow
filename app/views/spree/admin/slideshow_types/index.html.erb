@@ -22,7 +22,7 @@
   <tr id="<%= spree_dom_id slideshow_type %>" data-hook="admin_slideshow_types_index_rows">
     <td><%= slideshow_type.category %></td>
 	<td><%= icon('tick') if slideshow_type.enabled %></td>
-	<td><%= slideshow_type.slide_number %></td>
+	<td><%= slideshow_type.slides.count %></td>
     <td class="actions" data-hook="admin_slideshows_index_row_actions">
       <%= link_to_edit slideshow_type, :class => 'edit' %>
       &nbsp;
