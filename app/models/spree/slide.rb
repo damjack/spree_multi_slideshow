@@ -1,28 +1,19 @@
 module Spree
   class Slide < ActiveRecord::Base
     belongs_to :slideshow
-    
     belongs_to :slideable, :polymorphic => true
+    acts_as_list :scope => :slideshow
     
     validate :no_attachment_errors
     validates_presence_of :slideshow_id
     validates_attachment_presence :attachment
     validates_attachment_content_type :attachment, :content_type => ['image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/x-png', 'image/pjpeg'], :message => I18n.t(:images_only)
-    
-    attr_accessor :attachment_width, :attachment_height
-    attr_accessible :title, :url, :enabled, :presentation, :slideshow_id, :attachment
-    
+        
     has_attached_file :attachment,
             :url  => "/spree/slides/:id/:style_:basename.:extension",
             :path => ":rails_root/public/spree/slides/:id/:style_:basename.:extension",
-            :styles => lambda {|a|{
-                  :mini => "60x60#",
-                  :small =>  "300x100#",
-                  :medium => "600x200#",
-                  :large =>  "900x300#",
-                  :custom => "#{a.instance.attachment_width}x#{a.instance.attachment_height}#"
-            }},
-            :convert_options => { :all => '-strip -auto-orient' }
+            :styles => { :mini => "60x60#", :small =>  "300x100#", :medium => "600x200#", :large =>  "900x300#"},
+            convert_options: { all: '-strip -auto-orient -colorspace sRGB' }
     # save the w,h of the original image (from which others can be calculated)
     # we need to look at the write-queue for images which have not been saved yet
     after_post_process :find_dimensions
@@ -33,17 +24,11 @@ module Spree
     include Spree::Core::S3Support
     supports_s3 :attachment
 
-    Spree::Slide.attachment_definitions[:attachment][:styles] = ActiveSupport::JSON.decode(Spree::Config[:slide_styles])
+    Spree::Slide.attachment_definitions[:attachment][:styles] = ActiveSupport::JSON.decode(Spree::Config[:slide_styles]).symbolize_keys!
     Spree::Slide.attachment_definitions[:attachment][:path] = Spree::Config[:slide_path]
     Spree::Slide.attachment_definitions[:attachment][:url] = Spree::Config[:slide_url]
     Spree::Slide.attachment_definitions[:attachment][:default_url] = Spree::Config[:slide_default_url]
     Spree::Slide.attachment_definitions[:attachment][:default_style] = Spree::Config[:slide_default_style]
-    
-    def initialize(*args)
-      super(*args)
-      last_slide = Spree::Slide.last
-      self.position = last_slide ? last_slide.position + 1 : 0
-    end
     
     def find_dimensions
       temporary = attachment.queued_for_write[:original]
